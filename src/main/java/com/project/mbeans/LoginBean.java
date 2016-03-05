@@ -39,7 +39,7 @@ public class LoginBean implements Serializable{
 			HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 			session.setAttribute("user", Boolean.TRUE);
 			try {
-				FacesContext.getCurrentInstance().getExternalContext().redirect("/Dersane/secure/index.xhtml?faces-redirect=true");	
+				FacesContext.getCurrentInstance().getExternalContext().redirect("/CevrimiciPortal/secure/kullanici.xhtml?faces-redirect=true");	
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

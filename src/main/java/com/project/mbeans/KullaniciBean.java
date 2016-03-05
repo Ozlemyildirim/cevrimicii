@@ -7,17 +7,12 @@ import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
-import org.primefaces.model.map.DefaultMapModel;
-import org.primefaces.model.map.LatLng;
-import org.primefaces.model.map.MapModel;
-import org.primefaces.model.map.Marker;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import com.project.entity.Kayit;
 import com.project.entity.Kullanici;
-import com.project.service.KayitService;
 import com.project.service.KullaniciService;
 
 @Controller("kullaniciBean")
@@ -34,8 +29,7 @@ public class KullaniciBean implements Serializable{
 
 	@Autowired
 	private transient KullaniciService kullaniciService;
-	@Autowired
-	private transient KayitService kayitService;
+
 	
 	private Kullanici kullanici;
 	private String mesaj;
@@ -69,9 +63,6 @@ public class KullaniciBean implements Serializable{
 		FacesContext.getCurrentInstance().addMessage("Kayýt", new FacesMessage("Kullanýcý Silindi"));
 	}
 	
-	public List<Kayit> kisiAcomp(String key) {		
-		return kayitService.getByNameOrSurname(key);
-	}
 	
 	public void duzenle(Long id) {
 		Kullanici entity= kullaniciService.getById(id);

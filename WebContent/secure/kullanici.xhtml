@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+</h:head>
+
+<h:body>
+	<CENTER>
+		<div style="align: center">
+			<h:form id="loginForm">
+				<p:growl id="msg" showDetail="true" life="3000" />
+				<p:panel header="Lütfen Giriş Yapınız.." style="width: 480px;">
+
+					<h:panelGrid id="loginPanel" columns="4">
+
+						<h:outputText value="Kullanıcı adı" />
+
+						<p:inputText id="username" value="#{loginBean.username}" ></p:inputText>
+
+
+						<p:spacer></p:spacer>
+
+						<p:message for="username"></p:message>
+
+						<h:outputText value="Şifre" />
+
+						<p:password id="password" value="#{loginBean.password}"  ></p:password>
+
+						<p:spacer></p:spacer>
+
+						<p:message for="password"></p:message>
+
+						<p:spacer></p:spacer>
+
+						<p:commandButton action="#{loginBean.logIn}" value="Giriş"
+							></p:commandButton>
+							 
+						<div style="text-align: center">
+							<p:commandButton  value="Kaydol"
+								update="loginForm" ajax="true" action="Kullanici.xhtml"></p:commandButton>
+						</div>
+					</h:panelGrid>
+
+				</p:panel>
+
+			</h:form>
+		</div>
+	</CENTER>
+
+
+</h:body>
+</html>
