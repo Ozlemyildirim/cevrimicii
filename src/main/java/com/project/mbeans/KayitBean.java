@@ -1,4 +1,5 @@
 package com.project.mbeans;
+
 import java.io.Serializable;
 import java.util.List;
 

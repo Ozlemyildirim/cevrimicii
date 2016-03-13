@@ -22,17 +22,9 @@
 	<task:annotation-driven executor="taskExecutor"
 		scheduler="taskScheduler" proxy-target-class="true" />
 
-	<context:component-scan base-package="tr.com" />
+	<context:component-scan base-package="java" />
 
-	<bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
-		<property name="scopes">
-			<map>
-				<entry key="view">
-					<bean class="tr.com.dtsys.web.util.ViewScope" />
-				</entry>
-			</map>
-		</property>
-	</bean>
+	
 
 	<bean
 		class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor" />
@@ -41,7 +33,7 @@
 		destroy-method="close">
 		<property name="serverName" value="localhost" />
 		<property name="portNumber" value="5433" />
-		<property name="databaseName" value="DTSYS" />
+		<property name="databaseName" value="CEVRIMICIPORTAL" />
 		<property name="user" value="postgres" />
 		<property name="password" value="postgres" />
 		<property name="initialConnections" value="3" />
@@ -51,7 +43,7 @@
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="packagesToScan" value="tr.com.dtsys" />
+		<property name="packagesToScan" value="java.com.project" />
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
