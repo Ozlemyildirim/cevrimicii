@@ -1,0 +1,146 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/template/template.xhtml">
+	<ui:define name="pageContent">
+		<h:form id="frmDeneyim">
+			<p:panelGrid columns="2">
+				<p:fieldset legend="Eğitim" toggleable="true" toggleSpeed="500">
+					<p:ajax event="egitim" listener="#{egitimBean.handleToggle}" />
+					<p:panelGrid columns="2">
+						<p:outputLabel for="egitim" value="Eğitim Seviyesi :" />
+						<p:selectCheckboxMenu id="egitim"
+							value="#{egitimBean.selectedEgitim}">
+							<f:selectItem itemLabel="İlkokul" itemValue="İlkokul" />
+							<f:selectItem itemLabel="Orta Okul" itemValue="Orta Okul" />
+							<f:selectItem itemLabel="Lise" itemValue="Lise" />
+							<f:selectItem itemLabel="Meslek Yüksekokulu"
+								itemValue="Meslek Yüksekokulu" />
+							<f:selectItem itemLabel="Lisans" itemValue="Lisans" />
+							<f:selectItem itemLabel="Yüksek Lisans" itemValue="Yüksek Lisans" />
+							<f:selectItem itemLabel="Doktora" itemValue="Doktora" />
+						</p:selectCheckboxMenu>
+
+						<p:outputPanel id="display"
+							style="width:250px;padding-left:5px;margin-top:10px">
+							<p:dataList value="#{egitimBean.selectedEgitim}" var="city"
+								emptyMessage="Lütfen seçiniz.." />
+						</p:outputPanel>
+
+						<h:outputText value="Okul Adı :" />
+						<p:inputText id="okuladı" value="#{egitimBean.okuladi}"></p:inputText>
+
+						<p:outputLabel for="mezuniyetyili" value="Mezuniyet Yılı :" />
+						<p:calendar id="mezuniyetyili" value="#{egitimBean.mezuniyetyili}"
+							pattern="dd/MM/yyyy" mask="true" />
+
+						<h:outputText value="Diploma Notu :" />
+						<p:inputText id="diplomanotu" value="#{egitimBean.diplomanotu}"></p:inputText>
+					</p:panelGrid>
+				</p:fieldset>
+
+				<p:fieldset legend="Staj" toggleable="true" toggleSpeed="500">
+					<p:ajax event="staj" listener="#{egitimBean.handleToggle}"
+						update="msgs" />
+					<h:panelGrid columns="2">
+						<h:outputText value="Staj Yapılan Şirket :" />
+						<p:inputText id="staj_sirketadi"
+							value="#{egitimBean.staj_sirketadi}"></p:inputText>
+
+						<h:outputText value="Şirket Sektörü :" />
+						<p:inputText id="staj_sektor" value="#{egitimBean.staj_sektor}"></p:inputText>
+
+						<p:outputLabel for="stajbaslamatarihi"
+							value="Staj Başlama Tarihi :" />
+						<p:calendar id="stajbaslamatarihi"
+							value="#{egitimBean.staj_baslamatarihi}" pattern="dd/MM/yyyy"
+							mask="true" />
+
+						<p:outputLabel for="stajbitistarihi" value="Staj Bitiş Tarihi :" />
+						<p:calendar id="stajbitistarihi"
+							value="#{egitimBean.staj_bitistarihi}" pattern="dd/MM/yyyy"
+							mask="true" />
+
+						<h:outputText value="Staj Süresi :" />
+						<p:inputText id="staj_suresi" value="#{egitimBean.staj_suresi}"></p:inputText>
+
+					</h:panelGrid>
+				</p:fieldset>
+
+				<p:fieldset legend="Yabancı Diller" toggleable="true"
+					toggleSpeed="500">
+					<p:ajax event="yabancidil" listener="#{egitimBean.handleToggle}" />
+					<p:panelGrid>
+						<h:outputText value="Yabancı Dil :" />
+						<p:inputText id="yabancıdiller"
+							value="#{egitimBean.yabancıdiller}">
+							<f:selectItem></f:selectItem>
+						</p:inputText>
+
+					</p:panelGrid>
+				</p:fieldset>
+
+				<p:fieldset legend="Yetkinlikler" toggleable="true"
+					toggleSpeed="500">
+					<p:ajax event="yetkinlik" listener="#{egitimBean.handleToggle}" />
+					<p:panelGrid>
+						<h:outputText value="Yetkinlik Adı :" />
+						<p:inputText id="yetkinlikler"
+							value="#{egitimBean.yetkinlikler_adi}"></p:inputText>
+
+						<h:outputText value="Yetkinlik Seviyesi :" />
+						<p:selectCheckboxMenu id="yetkinlikler"
+							value="#{egitimBean.yetkinlikler_seviye}">
+							<f:selectItem itemLabel="Başlangıç" itemValue="Başlangıç" />
+							<f:selectItem itemLabel="Orta" itemValue="Orta" />
+							<f:selectItem itemLabel="İleri" itemValue="İleri" />
+						</p:selectCheckboxMenu>
+					</p:panelGrid>
+				</p:fieldset>
+
+				<p:fieldset legend="Kurs-Seminerler" toggleable="true"
+					toggleSpeed="500">
+					<p:ajax event="kurslar" listener="#{egitimBean.handleToggle}" />
+					<p:panelGrid>
+						<h:outputText value="Kurs Alınan Alan :" />
+						<p:inputText id="kurslar" value="#{egitimBean.kurs_adi}"></p:inputText>
+
+						<h:outputText value="Kurs Alınan Kurum :" />
+						<p:inputText id="kurslar" value="#{egitimBean.kurs_kurum}"></p:inputText>
+					</p:panelGrid>
+				</p:fieldset>
+
+				<p:fieldset legend="Sınavlar" toggleable="true" toggleSpeed="500">
+					<p:ajax event="sınavlar" listener="#{egitimBean.handleToggle}" />
+					<p:panelGrid>
+						<h:outputText value="Sınav Adı :" />
+						<p:inputText id="sınavlar" value="#{egitimBean.sınav_adi}"></p:inputText>
+
+						<h:outputText value="Sınav Notu :" />
+						<p:inputText id="sınavlar" value="#{egitimBean.sınav_notu}"></p:inputText>
+					</p:panelGrid>
+				</p:fieldset>
+
+				<p:fieldset legend="Sertifikalar" toggleable="true"
+					toggleSpeed="500">
+					<p:ajax event="sertifikalar" listener="#{egitimBean.handleToggle}" />
+					<p:panelGrid>
+						<h:outputText value="Sertifika Alınan Alanı :" />
+						<p:inputText id="sertifikalar"
+							value="#{egitimBean.sertifika_alani}"></p:inputText>
+
+						<h:outputText value="Sertifika Adı :" />
+						<p:inputText id="sertifikalar" value="#{egitimBean.sertifika_adi}"></p:inputText>
+
+						<h:outputText value="Sertifika Alınan Kurum :" />
+						<p:inputText id="sertifikalar" value="#{egitimBean.sertifika_kurum}"></p:inputText>
+					</p:panelGrid>
+				</p:fieldset>
+
+			</p:panelGrid>
+		</h:form>
+	</ui:define>
+</ui:composition>
+
