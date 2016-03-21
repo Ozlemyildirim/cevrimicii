@@ -71,10 +71,7 @@ public class Kayit extends BaseEntity{
     public void setEposta (String eposta) {
         this.eposta = eposta;
     }
-    
-    
-    
-   
+ 
    
     
     @Override

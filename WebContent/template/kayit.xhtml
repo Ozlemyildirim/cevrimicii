@@ -17,37 +17,22 @@
 					<h:panelGrid id="kayitPanel" columns="2">
 
 						<h:outputText value="Kullanıcı adı" />
-
-						<p:inputText id="username" value="#{kayitBean.adi}" required="true"  ></p:inputText>
-
-
-
-
+						<p:inputText id="username" value="#{kayitBean.adi}"
+							required="true"></p:inputText>
 						<h:outputText value="Soyadı: " />
-
-						<p:inputText id="soyadi" value="#{kayitBean.soyadi}" ></p:inputText>
-
-
+						<p:inputText id="soyadi" value="#{kayitBean.soyadi}"></p:inputText>
 						
+						<h:outputText value="Eposta: " />
+						<p:inputText value="#{kayitBean.eposta}" required="true"
+							label="Email" />
 
- 						<h:outputText value="Eposta: " />
-                    <p:inputText value="#{kayitBean.eposta}" required="true" label="Email"/>
-
- 						
 						<h:outputText value="Şifre: " />
+						<p:password id="şifre" value="#{kayitBean.sifre}" required="true"></p:password>
+						<p:commandButton action="#{kayitBean.kaydet}" value="Üye Ol"></p:commandButton>
 
-						<p:password id="şifre" value="#{kayitBean.sifre}" required="true"  ></p:password>
-						
+						<p:commandButton value="Giriş" update="kayitForm" ajax="true"
+							action="kullanici.xhtml"></p:commandButton>
 
-						
-
-						<p:commandButton action="#{kayitBean.kaydet}" value="Üye Ol"
-							></p:commandButton>
-							 
-						
-							<p:commandButton  value="Giriş"
-								update="kayitForm" ajax="true" action="kullanici.xhtml"></p:commandButton>
-						
 					</h:panelGrid>
 
 				</p:panel>
