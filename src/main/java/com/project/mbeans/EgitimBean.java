@@ -27,8 +27,8 @@ public class EgitimBean implements Serializable {
 	private Egitim egitim;
 	List<Egitim> egitimList;
 	private String mesaj;
-	private String[] selectedEgitim;   
-    private List<String> egitimbilgisi;
+	private String[] selectedEgitim;
+	private List<String> egitimbilgisi;
 
 	@PostConstruct
 	public void init() {
@@ -39,17 +39,35 @@ public class EgitimBean implements Serializable {
 
 	public void kaydet() {
 		System.out.println(egitim.toString());
-		egitimService.save(egitim);
-		egitimList = egitimService.getAll();
-		mesaj = "egitim kaydedildi";
-		egitim = new Egitim();
 
+		if (this.egitim != null && this.egitim.getId() != null) {
+			egitimService.update(egitim);
+		} else {
+			egitimService.save(egitim);
+		}
+
+		egitimList = egitimService.getAll();
+
+		FacesContext.getCurrentInstance().addMessage("Kayýt",
+				new FacesMessage("Egitim Kaydedildi"));
+		egitim = new Egitim();
 	}
 
 	public void sil(Long id) {
 		Egitim entity = egitimService.getById(id);
 		egitimService.delete(entity);
 		egitimList = egitimService.getAll();
+		FacesContext.getCurrentInstance().addMessage("Kayýt",
+				new FacesMessage("Eðitim Silindi"));
+	}
+
+	public void duzenle(Long id) {
+		Egitim entity = egitimService.getById(id);
+		this.egitim = entity;
+	}
+
+	public void yeni() {
+		this.egitim = new Egitim();
 	}
 
 	public Egitim getEgitim() {
@@ -94,13 +112,14 @@ public class EgitimBean implements Serializable {
 	public void setEgitimbilgisi(List<String> egitimbilgisi) {
 		this.egitimbilgisi = egitimbilgisi;
 	}
-	public class FieldsetView {
-	     
-	    public void handleToggle(ToggleEvent event) {
-	        FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Toggled", "Visibility:" + event.getVisibility());
-	        FacesContext.getCurrentInstance().addMessage(null, msg);
-	    }
-	}
 
+	public class FieldsetView {
+
+		public void handleToggle(ToggleEvent event) {
+			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,
+					"Toggled", "Visibility:" + event.getVisibility());
+			FacesContext.getCurrentInstance().addMessage(null, msg);
+		}
+	}
 
 }

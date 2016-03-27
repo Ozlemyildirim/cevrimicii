@@ -8,52 +8,52 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.project.entity.Ýlan;
+import com.project.entity.Ilan;
 
 @Service
-public class ÝlanService {
+public class IlanService {
 
 	@Autowired
 	private BaseDao baseDao;
 
-	public Ýlan save(Ýlan entity) {
+	public Ilan save(Ilan entity) {
 		baseDao.save(entity);
 		return entity;
 	}
 
-	public Ýlan update(Ýlan entity) {
+	public Ilan update(Ilan entity) {
 		baseDao.update(entity);
 		return entity;
 	}
 
-	public boolean delete(Ýlan entity) {
+	public boolean delete(Ilan entity) {
 		baseDao.delete(entity);
 		return true;
 	}
 
 	@Transactional
 	@SuppressWarnings("unchecked")
-	public List<Ýlan> getAll() {
-		Criteria criteria = baseDao.getSession().createCriteria(Ýlan.class);
-		List<Ýlan> liste = criteria.list();
+	public List<Ilan> getAll() {
+		Criteria criteria = baseDao.getSession().createCriteria(Ilan.class);
+		List<Ilan> liste = criteria.list();
 		return liste;
 	}
 
 	@Transactional
-	public Ýlan getById(Long id) {
-		Criteria criteria = baseDao.getSession().createCriteria(Ýlan.class);
+	public Ilan getById(Long id) {
+		Criteria criteria = baseDao.getSession().createCriteria(Ilan.class);
 		criteria.add(Restrictions.eq("id", id));
-		Ýlan ilan = (Ýlan) criteria.uniqueResult();
+		Ilan ilan = (Ilan) criteria.uniqueResult();
 		return ilan;
 	}
 
 	@Transactional
-	public Ýlan getUserByLessonName(String lessonname) {
+	public Ilan getUserByLessonName(String lessonname) {
 
-		Criteria criteria = baseDao.getSession().createCriteria(Ýlan.class);
+		Criteria criteria = baseDao.getSession().createCriteria(Ilan.class);
 		criteria.add(Restrictions.and(Restrictions
 				.eq("lessonnname", lessonname)));
-		Ýlan ilan = (Ýlan) criteria.uniqueResult();
+		Ilan ilan = (Ilan) criteria.uniqueResult();
 
 		return ilan;
 	}
