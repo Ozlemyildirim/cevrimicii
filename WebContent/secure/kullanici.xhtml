@@ -1,7 +1,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	 >
+	<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	>
 
 <h:head>
 
@@ -10,38 +13,34 @@
 <h:body>
 	<CENTER>
 		<div style="align: center">
-			<h:form id="loginForm">
+			<h:form id="kayitForm">
 				<p:growl id="msg" showDetail="true" life="3000" />
-				<p:panel header="Lütfen Giriş Yapınız.." style="width: 480px;">
+				<p:panel header="Lütfen Kayıt Olunuz.." style="width: 480px;">
 
-					<h:panelGrid id="loginPanel" columns="4">
+					<h:panelGrid id="kayitPanel" columns="2">
 
 						<h:outputText value="Kullanıcı adı" />
 
-						<p:inputText id="username" value="#{loginBean.username}" ></p:inputText>
+						<p:inputText id="username" value="#{kullaniciBean.kullanici.username}" required="true"  ></p:inputText>
 
 
-						<p:spacer></p:spacer>
 
-						<p:message for="username"></p:message>
 
-						<h:outputText value="Şifre" />
+						
+						<h:outputText value="Şifre: " />
 
-						<p:password id="password" value="#{loginBean.password}"  ></p:password>
+						<p:password id="şifre" value="#{kullaniciBean.kullanici.password}" required="true" update=":kayitForm:kayitPanel" ></p:password>
+						
 
-						<p:spacer></p:spacer>
+						
 
-						<p:message for="password"></p:message>
-
-						<p:spacer></p:spacer>
-
-						<p:commandButton action="#{loginBean.logIn}" value="Giriş"
+						<p:commandButton action="#{kullaniciBean.kaydet}" value="Üye Ol"
 							></p:commandButton>
 							 
-						<div style="text-align: center">
-							<p:commandButton  value="Kaydol"
-								update="loginForm" ajax="true" action="Kullanici.xhtml"></p:commandButton>
-						</div>
+						
+							<p:commandButton  value="Giriş"
+								update="kayitForm" action="login.xhtml"></p:commandButton>
+						
 					</h:panelGrid>
 
 				</p:panel>
@@ -52,4 +51,6 @@
 
 
 </h:body>
+
+</ui:composition>
 </html>

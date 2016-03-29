@@ -39,7 +39,7 @@ public class LoginBean implements Serializable{
 			HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 			session.setAttribute("user", Boolean.TRUE);
 			try {
-				FacesContext.getCurrentInstance().getExternalContext().redirect("/CevrimiciPortal/template/template.xhtml?faces-redirect=true");	
+				FacesContext.getCurrentInstance().getExternalContext().redirect("/CevrimiciPortal/secure/abc.xhtml?faces-redirect=true");	
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -51,7 +51,7 @@ public class LoginBean implements Serializable{
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 		session.invalidate();
 		try {
-			FacesContext.getCurrentInstance().getExternalContext().redirect("/CevrimiciPortal/kullanici.xhtml?faces-redirect=true");	
+			FacesContext.getCurrentInstance().getExternalContext().redirect("/CevrimiciPortal/login.xhtml?faces-redirect=true");	
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

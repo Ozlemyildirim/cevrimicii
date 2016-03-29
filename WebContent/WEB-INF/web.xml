@@ -64,6 +64,6 @@
 	</servlet-mapping>
 	
   <welcome-file-list>
-    <welcome-file>secure/kullanici.xhtml</welcome-file>
+    <welcome-file>secure/login.xhtml</welcome-file>
   </welcome-file-list>
 </web-app>
