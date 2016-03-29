@@ -3,6 +3,8 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -33,39 +35,64 @@ public class ReferansBean implements Serializable{
 	}
 	public void kaydet() {
 		System.out.println(referans.toString());
-		referansService.save(referans);
+		
+		if (this.referans != null && this.referans.getId() != null) {
+			referansService.update(referans);
+		} else {
+			referansService.save(referans);
+		}
+		
+	
 		referansList=referansService.getAll();
-		mesaj="Referans kaydedildi";
-		referans=new Referans();
-
+		
+		FacesContext.getCurrentInstance().addMessage("Kayýt",
+				new FacesMessage("Referans Kaydedildi"));
+		referans= new Referans();
+		
 	}
 	
 	public void sil(Long id) {
 		Referans entity=referansService.getById(id);
 		referansService.delete(entity);
 		referansList=referansService.getAll();
+		FacesContext.getCurrentInstance().addMessage("Kayýt",
+				new FacesMessage("Referans Silindi"));
 	}
 	
+	public void duzenle(Long id) {
+		Referans entity = referansService.getById(id);
+		this.referans = entity;
+	}
+
+	public void yeni() {
+		this.referans = new Referans();
+	}
+
 	public Referans getReferans() {
-		if(referans==null){
-			referans= new Referans();
+		if (referans == null) {
+			referans = new Referans();
 		}
 		return referans;
 	}
-	public void setReferans(Referans referans) {
-		this.referans = referans;
-	}
+
+
+
 	public List<Referans> getReferansList() {
 		return referansList;
 	}
+	
+
+		
+	public void setReferans(Referans referans) {
+		this.referans = referans;
+	}
+	
 	public void setReferansList(List<Referans> referansList) {
 		this.referansList = referansList;
 	}
+	
 	public String getMesaj() {
 		return mesaj;
-	}
-	public void setMesaj(String mesaj) {
-		this.mesaj = mesaj;
 	}
 	
 	

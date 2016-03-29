@@ -1,9 +1,10 @@
 package com.project.mbeans;
-
 import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -13,7 +14,7 @@ import com.project.entity.Tercihler;
 import com.project.service.TercihlerService;
 
 
-@Controller("tercihlerBean")
+@Controller("tercihlersBean")
 @Scope("session")
 public class TercihlerBean implements Serializable{
 	/**
@@ -34,39 +35,64 @@ public class TercihlerBean implements Serializable{
 	}
 	public void kaydet() {
 		System.out.println(tercihler.toString());
-		tercihlerService.save(tercihler);
+		
+		if (this.tercihler != null && this.tercihler.getId() != null) {
+			tercihlerService.update(tercihler);
+		} else {
+			tercihlerService.save(tercihler);
+		}
+		
+	
 		tercihlerList=tercihlerService.getAll();
-		mesaj="Tercihler kaydedildi";
-		tercihler=new Tercihler();
-
+		
+		FacesContext.getCurrentInstance().addMessage("Kayýt",
+				new FacesMessage("Tercihler Kaydedildi"));
+		tercihler= new Tercihler();
+		
 	}
 	
 	public void sil(Long id) {
 		Tercihler entity=tercihlerService.getById(id);
 		tercihlerService.delete(entity);
 		tercihlerList=tercihlerService.getAll();
+		FacesContext.getCurrentInstance().addMessage("Kayýt",
+				new FacesMessage("Tercihler Silindi"));
 	}
 	
+	public void duzenle(Long id) {
+		Tercihler entity = tercihlerService.getById(id);
+		this.tercihler = entity;
+	}
+
+	public void yeni() {
+		this.tercihler = new Tercihler();
+	}
+
 	public Tercihler getTercihler() {
-		if(tercihler==null){
-			tercihler= new Tercihler();
+		if (tercihler == null) {
+			tercihler = new Tercihler();
 		}
 		return tercihler;
 	}
-	public void setTercihler(Tercihler tercihler) {
-		this.tercihler = tercihler;
-	}
+
+
+
 	public List<Tercihler> getTercihlerList() {
 		return tercihlerList;
 	}
-	public void setTercihlerList(List<Tercihler> tercihlerList) {
-		this.tercihlerList = tercihlerList;
+	
+
+		
+	public void setTercihler(Tercihler tercihler) {
+		this.tercihler = tercihler;
 	}
+	
+	public void setTercihlerList(List<Tercihler> tercihlerList) {
+		this.tercihlerList =tercihlerList;
+	}
+	
 	public String getMesaj() {
 		return mesaj;
-	}
-	public void setMesaj(String mesaj) {
-		this.mesaj = mesaj;
 	}
 	
 	
