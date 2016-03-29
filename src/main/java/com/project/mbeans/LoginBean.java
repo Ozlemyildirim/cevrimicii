@@ -14,6 +14,7 @@ import com.project.service.KullaniciService;
 
 @Controller("loginBean")
 @Scope("session")
+
 public class LoginBean implements Serializable{
 
 	/**
@@ -39,7 +40,7 @@ public class LoginBean implements Serializable{
 			HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 			session.setAttribute("user", Boolean.TRUE);
 			try {
-				FacesContext.getCurrentInstance().getExternalContext().redirect("/CevrimiciPortal/secure/abc.xhtml?faces-redirect=true");	
+				FacesContext.getCurrentInstance().getExternalContext().redirect("/CevrimiciPortal/template/template.xhtml?faces-redirect=true");	
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

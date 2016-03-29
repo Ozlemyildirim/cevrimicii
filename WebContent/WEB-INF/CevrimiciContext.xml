@@ -22,7 +22,7 @@
 	<task:annotation-driven executor="taskExecutor"
 		scheduler="taskScheduler" proxy-target-class="true" />
 
-	<context:component-scan base-package="java" />
+	<context:component-scan base-package="com.project" />
 
 	
 

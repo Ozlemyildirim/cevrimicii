@@ -16,7 +16,7 @@ import com.project.entity.Kullanici;
 import com.project.service.KullaniciService;
 
 @Controller("kullaniciBean")
-@Scope("view")
+@Scope("session")
 public class KullaniciBean implements Serializable{
 	
 	/**

@@ -9,7 +9,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="KAYIT")
+@Table(name="KULLANICI")
 public class Kullanici extends BaseEntity{
 	/**
 	 * 
