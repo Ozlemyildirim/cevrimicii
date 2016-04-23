@@ -20,8 +20,8 @@ public class Kullanici extends BaseEntity{
 	private String password;
 	
 	@Id
-	@SequenceGenerator(name="SEQ_KAYIT_ID",sequenceName="SEQ_KAYIT_ID",allocationSize=1,initialValue=1)
-	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="SEQ_KAYIT_ID")
+	@SequenceGenerator(name="SEQ_KULLANICI_ID",sequenceName="SEQ_KULLANICI_ID",allocationSize=1,initialValue=1)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="SEQ_KULLANICI_ID")
 	@Column(name="ID")
 	public Long getId() {
 		return id;

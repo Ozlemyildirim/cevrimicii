@@ -1,55 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
-
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
-
+	<f:facet name="first">
+		 <meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+	 
+   		<h:outputScript library="js" name="login.js" target="body"/>
+		<h:outputStylesheet name="css/login.css"></h:outputStylesheet>	
+	</f:facet>	 
 </h:head>
-
 <h:body>
-	<CENTER>
-		<div style="align: center">
-			<h:form id="loginForm">
-				<p:growl id="msg" showDetail="true" life="3000" />
-				<p:panel header="Lütfen Giriş Yapınız.." style="width: 480px;">
+<div class="pen-title">
+  <h1>Giriş Yapın</h1><span> <i class='fa fa-paint-brush'></i> 
+   <i class='fa fa-code'></i>  <a href='http://andytran.me'></a></span>
+</div>
 
-					<h:panelGrid id="loginPanel" columns="4">
+   <div class="module form-module">
+  <div class="toggle"><i class="fa fa-times fa-pencil"></i>
+    <div class="tooltip">Click Me</div>
+  </div>
+  
+  <div class="form">
 
-						<h:outputText value="Kullanıcı adı" />
-
-						<p:inputText id="username" value="#{loginBean.username}" ></p:inputText>
-
-
-						<p:spacer></p:spacer>
-
-						<p:message for="username"></p:message>
-
-						<h:outputText value="Şifre" />
-
-						<p:password id="password" value="#{loginBean.password}"  ></p:password>
-
-						<p:spacer></p:spacer>
-
-						<p:message for="password"></p:message>
-
-						<p:spacer></p:spacer>
-
-						<p:commandButton action="#{loginBean.logIn}" value="Giriş"
-							></p:commandButton>
+    <h2>Login to your account</h2>
+    
+    <form>
+      <input type="text" placeholder="Username" value="#{loginBean.username}" />
+      <input type="password" placeholder="Password"  value="#{loginBean.password}"   />
+       <button action="#{loginBean.logIn}">Login </button>
+	
+    
+    </form>
+  </div>
+  <div class="form">
+   
+    <h2>Create an account</h2>
+    <form>
+      <input type="text" placeholder="Username"/>
+      <input type="password" placeholder="Password"/>
+      <input type="email" placeholder="Email Address"/>
+      <input type="tel" placeholder="Phone Number"/>
+      
+						<Button value="Üye Ol" action="#{kullaniciBean.kaydet}" 
+							></Button>
 							 
-						<div style="text-align: center">
-							<p:commandButton  value="Kaydol"
-								update="loginForm" ajax="true" action="kullanici.xhtml"></p:commandButton>
-						</div>
-					</h:panelGrid>
-
-				</p:panel>
-
-			</h:form>
-		</div>
-	</CENTER>
-
-
+    </form>
+  </div>
+  <div class="cta"><a href="">Forgot your password?</a></div>
+</div>
 </h:body>
+
 </html>

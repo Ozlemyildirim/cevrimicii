@@ -32,7 +32,6 @@ public class KullaniciBean implements Serializable{
 
 	
 	private Kullanici kullanici;
-	private String mesaj;
 	List<Kullanici> kullaniciList;
 	
 	@PostConstruct
@@ -42,7 +41,7 @@ public class KullaniciBean implements Serializable{
 	
 	public void kaydet() {
 		System.out.println(kullanici.toString());
-				
+		
 		if(this.kullanici!=null && this.kullanici.getId()!=null){
 			kullaniciService.update(kullanici);	
 		}else{
@@ -51,7 +50,7 @@ public class KullaniciBean implements Serializable{
 		
 		kullaniciList=kullaniciService.getAll();
 		
-		FacesContext.getCurrentInstance().addMessage("Kayýt", new FacesMessage("Kullanýcý Kaydedildi"));
+		
 		kullanici=new Kullanici();
 	}
 	
@@ -84,9 +83,7 @@ public class KullaniciBean implements Serializable{
 		this.kullanici = kullanici;
 	}
 	
-	public String getMesaj() {
-		return mesaj;
-	}
+
 	
 	public List<Kullanici> getKullaniciList() {
 		return kullaniciList;

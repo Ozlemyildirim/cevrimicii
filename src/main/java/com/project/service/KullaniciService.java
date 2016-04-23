@@ -12,7 +12,7 @@ import com.project.entity.Kullanici;
 
 /**
  *
- * @author vektorel
+ * @author 
  */
 @Service
 public class KullaniciService {
