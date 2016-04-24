@@ -21,7 +21,7 @@ public class Sirket extends BaseEntity {
 	private String sektoru;
 	private int calisansayisi;
 	private String adresi;
-	private String ülke;
+	private String ulke;
 	private String sehir;
 	private String webadresi;
 
@@ -55,7 +55,7 @@ public class Sirket extends BaseEntity {
 		this.sektoru = sektoru;
 	}
 
-	@Column(name = "CALISANSYISI")
+	@Column(name = "CALISANSAYISI")
 	public int getCalisansayisi() {
 		return calisansayisi;
 	}
@@ -74,12 +74,12 @@ public class Sirket extends BaseEntity {
 	}
 
 	@Column(name = "ULKE")
-	public String getÜlke() {
-		return ülke;
+	public String getUlke() {
+		return ulke;
 	}
 
-	public void setÜlke(String ülke) {
-		this.ülke = ülke;
+	public void setUlke(String ulke) {
+		this.ulke = ulke;
 	}
 
 	@Column(name = "SIRKETSEHRI")

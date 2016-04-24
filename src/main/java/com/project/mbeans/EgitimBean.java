@@ -7,7 +7,6 @@ import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
-import org.primefaces.event.ToggleEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -27,8 +26,6 @@ public class EgitimBean implements Serializable {
 	private Egitim egitim;
 	List<Egitim> egitimList;
 	private String mesaj;
-	private String[] selectedEgitim;
-	private List<String> egitimbilgisi;
 
 	@PostConstruct
 	public void init() {
@@ -85,41 +82,8 @@ public class EgitimBean implements Serializable {
 		return egitimList;
 	}
 
-	public void setEgitimList(List<Egitim> egitimList) {
-		this.egitimList = egitimList;
-	}
-
 	public String getMesaj() {
 		return mesaj;
-	}
-
-	public void setMesaj(String mesaj) {
-		this.mesaj = mesaj;
-	}
-
-	public String[] getSelectedEgitim() {
-		return selectedEgitim;
-	}
-
-	public void setSelectedEgitim(String[] selectedEgitim) {
-		this.selectedEgitim = selectedEgitim;
-	}
-
-	public List<String> getEgitimbilgisi() {
-		return egitimbilgisi;
-	}
-
-	public void setEgitimbilgisi(List<String> egitimbilgisi) {
-		this.egitimbilgisi = egitimbilgisi;
-	}
-
-	public class FieldsetView {
-
-		public void handleToggle(ToggleEvent event) {
-			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,
-					"Toggled", "Visibility:" + event.getVisibility());
-			FacesContext.getCurrentInstance().addMessage(null, msg);
-		}
 	}
 
 }

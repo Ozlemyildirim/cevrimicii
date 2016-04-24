@@ -14,8 +14,8 @@ import org.springframework.stereotype.Controller;
 import com.project.entity.Sirket;
 import com.project.service.SirketService;
 
-@Controller("SirketBean")
-@Scope("view")
+@Controller("sirketBean")
+@Scope("session")
 public class SirketBean implements Serializable {
 
 	/**

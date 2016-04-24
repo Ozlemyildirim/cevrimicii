@@ -15,7 +15,7 @@ import com.project.entity.Deneyim;
 import com.project.service.DeneyimService;
 
 @Controller("deneyimBean")
-@Scope("view")
+@Scope("session")
 public class DeneyimBean implements Serializable {
 
 	/**

@@ -1,54 +1,52 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui" >
-	<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets">
 
-<h:head>
+	<h:head>
 
-</h:head>
+	</h:head>
 
-<h:body>
-	<CENTER>
-		<div style="align: center">
-			<h:form id="kayitForm">
-				<p:growl id="msg" showDetail="true" life="3000" />
-				<p:panel header="Lütfen Kayıt Olunuz.." style="width: 480px;">
+	<h:body>
+		<CENTER>
+			<div style="align: center">
+				<h:form id="kayitForm">
+					<p:growl id="msg" showDetail="true" life="3000" />
+					<p:panel header="Lütfen Kayıt Olunuz.." style="width: 480px;">
 
-					<h:panelGrid id="kayitPanel" columns="2">
+						<h:panelGrid id="kayitPanel" columns="2">
 
-						<h:outputText value="Kullanıcı adı" />
+							<h:outputText value="Kullanıcı adı" />
 
-						<p:inputText id="username" value="#{kullaniciBean.kullanici.username}" required="true"  ></p:inputText>
+							<p:inputText id="username"
+								value="#{kullaniciBean.kullanici.username}" required="true"></p:inputText>
 
+							<h:outputText value="Şifre: " />
 
-
-
-						
-						<h:outputText value="Şifre: " />
-
-						<p:password id="şifre" value="#{kullaniciBean.kullanici.password}" required="true" update=":kayitForm:kayitPanel" ></p:password>
-						
-
-						
-
-						<p:commandButton value="Üye Ol" action="#{kullaniciBean.kaydet}" 
-							></p:commandButton>
-							 
-						
-							<p:commandButton  value="Giriş"
-								update="kayitForm" action="login.xhtml"></p:commandButton>
-						
-					</h:panelGrid>
-
-				</p:panel>
-
-			</h:form>
-		</div>
-	</CENTER>
+							<p:password id="şifre"
+								value="#{kullaniciBean.kullanici.password}" required="true"
+								update=":kayitForm:kayitPanel"></p:password>
 
 
-</h:body>
+
+
+							<p:commandButton value="Üye Ol" action="#{kullaniciBean.kaydet}"></p:commandButton>
+
+
+							<p:commandButton value="Giriş" update="kayitForm"
+								action="login.xhtml"></p:commandButton>
+
+						</h:panelGrid>
+
+					</p:panel>
+
+				</h:form>
+			</div>
+		</CENTER>
+
+
+	</h:body>
 
 </ui:composition>
 </html>
