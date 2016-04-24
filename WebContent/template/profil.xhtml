@@ -137,6 +137,7 @@
 							<li><a href="deneyim.xhtml">Deneyim</a></li>
 							<li><a href="egitim.xhtml">Eğitim</a></li>
 							<li><a href="tercihler.xhtml">Tercihler</a></li>
+							<li><a href="referans.xhtml">Referanslar</a></li>
 
 						</ul>
 					</div>
@@ -149,33 +150,54 @@
 					<div class="main">
 						<div class="content">
 							<div class="form-style-3">
-								<form>
-									<fieldset>
-										<legend>Personal</legend>
-										<label for="field1"><span>Name <span
-												class="required">*</span></span><input type="text"
-											class="input-field" name="field1" value="" /></label> <label
-											for="field2"><span>Email <span
-												class="required">*</span></span><input type="email"
-											class="input-field" name="field2" value="" /></label> <label
-											for="field3"><span>Phone <span
-												class="required">*</span></span><input type="text"
-											class="input-field" name="field3" value="" /></label> <label
-											for="field4"><span>Subject</span><select
-											name="field4" class="select-field">
-												<option value="Appointment">Appointment</option>
-												<option value="Interview">Interview</option>
-												<option value="Regarding a post">Regarding a post</option>
-										</select></label>
-									</fieldset>
-									<fieldset>
-										<legend>Message</legend>
-										<label for="field6"><span>Message <span
-												class="required">*</span></span>
-										<textarea name="field6" class="textarea-field"></textarea></label> <label><span>&nbsp;</span><input
-											type="submit" value="Submit" actionListener=" " /></label>
-									</fieldset>
-								</form>
+								<h:form id="frmProfil">
+									<p:panelGrid columns="2">
+
+										<f:facet name="header">KİŞİSEL BİLGİLER</f:facet>
+										<h:outputText value="Adı :" />
+										<p:inputText id="adi" value="#{profilBean.profil.adi}"></p:inputText>
+
+										<h:outputText value="Soyadı :" />
+										<p:inputText id="soyadi" value="#{profilBean.profil.soyadi}"></p:inputText>
+
+										<h:outputText value="CİNSİYET: " />
+										<p:selectManyCheckbox id="cinsiyet"
+											value="#{profilBean.profil.cinsiyet}" required="true"
+											label="cinsiyet">
+											<f:selectItem itemLabel="KADIN" itemValue="KADIN" />
+											<f:selectItem itemLabel="ERKEK" itemValue="ERKEK" />
+										</p:selectManyCheckbox>
+
+										<h:outputText value="E-MAİL ADRESİ: " />
+										<p:inputText value="#{profilBean.profil.eposta}"
+											required="true" label="Email" />
+										<h:outputText value="TELEFON NUMARASI: *" />
+										<p:inputText value="#{profilBean.profil.telefon}"
+											required="true" label="TELEFON" />
+										<p:outputLabel for="dogum_tarihi" value="DOĞUM TARİHİ:" />
+										<p:calendar id="dtarihi" value="#{profilBean.profil.dtarihi}"
+											pattern="dd-MM-yyyy" />
+
+										<h:outputText value="Adres :" />
+										<p:inputText id="adres" value="#{profilBean.profil.adres}"></p:inputText>
+
+										<h:outputText value="Medeni Hal :" />
+										<p:selectManyCheckbox id="medenihal"
+											value="#{profilBean.profil.medenihal}" required="true"
+											label="medenihal">
+											<f:selectItem itemLabel="EVLİ" itemValue="EVLİ" />
+											<f:selectItem itemLabel="BEKAR" itemValue="BEKAR" />
+										</p:selectManyCheckbox>
+
+										<h:outputText alue="Askerlik :" />
+										<p:selectBooleanCheckbox id="askerlik"
+											value="#{profilBean.profil.askerlik}"></p:selectBooleanCheckbox>
+										<p:commandButton value="Kaydet" update="frmProfil" ajax="true"
+											action="profil.xhtml"></p:commandButton>
+										<p:commandButton value="İptal" update="frmProfil" ajax="true"
+											action="profil.xhtml"></p:commandButton>
+									</p:panelGrid>
+								</h:form>
 							</div>
 						</div>
 

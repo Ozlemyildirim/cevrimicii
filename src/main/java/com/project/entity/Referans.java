@@ -17,7 +17,7 @@ public class Referans extends BaseEntity{
 	private Long id;
 	private String ad;
 	private String soyad;
-	private String referansTipi;
+	private String referanstipi;
 	private String pozisyon;
 	
 	
@@ -56,12 +56,12 @@ public class Referans extends BaseEntity{
 	
 	
 	
-	@Column(name = "REFERANSTÝPÝ")
-	public String getReferansTipi() {
-		return referansTipi;
+	@Column(name = "REFERANSTIPI")
+	public String getReferanstipi() {
+		return referanstipi;
 	}
-	public void setReferansTipi(String referansTipi) {
-		this.referansTipi = referansTipi;
+	public void setReferanstipi(String referansTipi) {
+		this.referanstipi = referanstipi;
 	}
 	
 

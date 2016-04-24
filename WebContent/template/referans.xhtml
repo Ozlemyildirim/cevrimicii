@@ -150,28 +150,30 @@
 					<div class="main">
 						<div class="content">
 							<div class="form-style-3">
-								<h:form id="frmDeneyim">
+
+								<h:form id="frmReferans">
 									<p:panelGrid columns="2">
 
-										<f:facet name="header">DENEYİM BİLGİSİ</f:facet>
+										<f:facet name="header">Referans</f:facet>
+										<h:outputText value="Ad :" />
+										<p:inputText id="adi" value="#{referansBean.referans.ad}"></p:inputText>
+
+										<h:outputText value="Soyad :" />
+										<p:inputText id="soyad" value="#{referansBean.referans.soyad}"></p:inputText>
+
+										<h:outputText value="Referans Tipi :" />
+										<p:inputText id="referanstipi"
+											value="#{referansBean.referans.referanstipi}"></p:inputText>
+
 										<h:outputText value="Pozisyon :" />
-										<p:inputText id="pozisyon" value="#{deneyimBean.deneyim.pozisyon}"></p:inputText>
+										<p:inputText id="pozisyon"
+											value="#{referansBean.referans.pozisyon}"></p:inputText>
 
-										<h:outputText value="Şirket Adı :" />
-										<p:inputText id="sirketadi" value="#{deneyimBean.deneyim.sirketadi}"></p:inputText>
 
-										<h:outputText value="Şehir :" />
-										<p:inputText id="sehir" value="#{deneyimBean.deneyim.sehir}"></p:inputText>
-
-										<h:outputText value="Başlama Tarihi :" />
-										<p:inputText id="isebaslamatarihi"
-											value="#{deneyimBean.deneyim.isebaslamatarihi}"></p:inputText>
-
-										<h:outputText value="Bitiş Tarihi :" />
-										<p:inputText id="bitistarihi" value="#{deneyimBean.deneyim.bitistarihi}"></p:inputText>
-
-										<p:commandButton value="Kaydet" ></p:commandButton>
-										<p:commandButton value="İptal" ></p:commandButton>
+										<p:commandButton value="Kaydet" update="frmReferans"
+											ajax="true" action="referans.xhtml"></p:commandButton>
+										<p:commandButton value="İptal" update="frmReferans"
+											ajax="true" action="referans.xhtml"></p:commandButton>
 
 
 									</p:panelGrid>

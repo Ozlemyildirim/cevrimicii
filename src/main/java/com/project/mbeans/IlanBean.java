@@ -15,7 +15,7 @@ import com.project.entity.Ilan;
 import com.project.service.IlanService;
 
 @Controller("ilanBean")
-@Scope("view")
+@Scope("session")
 public class IlanBean implements Serializable {
 
 	/**
