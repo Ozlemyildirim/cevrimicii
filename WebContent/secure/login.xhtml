@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
@@ -6,57 +8,45 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
 	<f:facet name="first">
-		<meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<h:outputScript library="js" name="login.js" target="body" />
+		<title>İş Portalı</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1, maximum-scale=1" />
+
 		<h:outputStylesheet name="css/login.css"></h:outputStylesheet>
+		<h:outputScript library="js" name="login.js" target="body" />	
+	
+	
 	</f:facet>
 </h:head>
-<h:body>
-	<div class="pen-title">
-		<h1>Giriş Yapın</h1>
-		<span> <i class='fa fa-paint-brush'></i> <i class='fa fa-code'></i>
-			<a href='http://andytran.me'></a></span>
-	</div>
-
-	<div class="module form-module">
-		<div class="toggle">
-			<i class="fa fa-times fa-pencil"></i>
-			<div class="tooltip">Click Me</div>
-		</div>
-
-		<div class="form">
-
-			<h2>Login to your account</h2>
-
-			<form>
-				<input type="text" placeholder="Username"
-					value="#{loginBean.username}" /> <input type="password"
-					placeholder="Password" value="#{loginBean.password}" />
-				<h:commandButton value="Login" action="#{loginBean.logIn}"></h:commandButton>
 
 
-			</form>
-		</div>
-		<div class="form">
-
-			<h2>Create an account</h2>
-			<form>
-				<input type="text" placeholder="Username" /> <input type="password"
-					placeholder="Password" /> <input type="email"
-					placeholder="Email Address" /> <input type="tel"
-					placeholder="Phone Number" />
-
-				<commandButton value="Üye Ol" action="#{kullaniciBean.kaydet}"></commandButton>
-
-			</form>
-		</div>
-		<div class="cta">
-			<a href="">Forgot your password?</a>
-		</div>
-	</div>
-</h:body>
-
+<div class="pen-title">
+  <h1>Giriş Yapın</h1><span> <i class='fa fa-paint-brush'></i> <i class='fa fa-code'></i> </span>
+</div>
+<div class="module form-module">
+  <div class="toggle"><i class="fa fa-times fa-pencil"></i>
+    <div class="tooltip">Click Me</div>
+  </div>
+  <div class="form">
+    <h2>Login to your account</h2>
+    <form>
+      <input type="text" placeholder="Username"/>
+      <input type="password" placeholder="Password"/>
+      <button>Login</button>
+    </form>
+  </div>
+  <div class="form">
+    <h2>Create an account</h2>
+    <form>
+      <input type="text" placeholder="Username"/>
+      <input type="password" placeholder="Password"/>
+      <input type="email" placeholder="Email Address"/>
+      <input type="tel" placeholder="Phone Number"/>
+      <button>Register</button>
+    </form>
+  </div>
+  <div class="cta"><a href=" ">Forgot your password?</a></div>
+</div>
 </html>

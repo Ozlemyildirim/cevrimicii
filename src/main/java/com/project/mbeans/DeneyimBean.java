@@ -38,7 +38,7 @@ public class DeneyimBean implements Serializable {
 		deneyimList = deneyimService.getAll();
 	}
 
-	public void kaydet() {
+	public void olustur() {
 		System.out.println(deneyim.toString());
 
 		if (this.deneyim != null && this.deneyim.getId() != null) {

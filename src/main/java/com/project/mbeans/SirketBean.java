@@ -38,7 +38,7 @@ public class SirketBean implements Serializable {
 		SirketList = SirketService.getAll();
 	}
 
-	public void kaydet() {
+	public void olustur() {
 		System.out.println(Sirket.toString());
 
 		if (this.Sirket != null && this.Sirket.getId() != null) {

@@ -14,7 +14,7 @@ import com.project.entity.Tercihler;
 import com.project.service.TercihlerService;
 
 
-@Controller("tercihlersBean")
+@Controller("tercihlerBean")
 @Scope("session")
 public class TercihlerBean implements Serializable{
 	/**

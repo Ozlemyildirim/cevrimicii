@@ -147,7 +147,6 @@
 
 
 
-
 				<h:outputStylesheet name="css/form.css"></h:outputStylesheet>
 
 				<div class="header_bottom_right">
@@ -159,32 +158,58 @@
 
 										<f:facet name="header">ŞİRKET BİLGİSİ</f:facet>
 										<h:outputText value="Adı :" />
-										<p:inputText id="adi" value="#{sirketBean.sirket.adi}"></p:inputText>
+										<p:inputText id="adi" style="width:250px" value="#{sirketBean.sirket.adi}"></p:inputText>
 
-										<h:outputText value="Sektör :" />
-										<p:inputText id="sektor" value="#{sirketBean.sirket.sektoru}"></p:inputText>
+										<p:outputLabel for="sektör" value="Sektör :" />
+										<h:selectOneMenu id="sektör"	value="#{sirketBean.sirket.sektoru}" style="width:250px">
+							<f:selectItem itemLabel="Seçin" itemValue="" />
+							<f:selectItem itemLabel="Bilişim" itemValue="Bilişim" />
+							<f:selectItem itemLabel="Sağlık" itemValue="Sağlık" />
+							<f:selectItem itemLabel="Yazılım" itemValue="Yazılım" />
+							<f:selectItem itemLabel="İnşaat" itemValue="İnşaat" />
+							<f:selectItem itemLabel="Satış-Pazarlama" itemValue="Satış-Pazarlama" />
+							<f:selectItem itemLabel="Mühendislik" itemValue="Mühendislik" />
+							<f:selectItem itemLabel="Genel yönetim" itemValue="Genel yönetim" />
+							<f:selectItem itemLabel="Grafik Tasarım" itemValue="Grafik Tasarım" />
+							<f:selectItem itemLabel="Diğer" itemValue="Diğer" />
+						</h:selectOneMenu>
 
 										<h:outputText value="Çalışan Sayısı :" />
-										<p:inputText id="calisansayisi"
+										<p:inputText id="calisansayisi" style="width:250px"
 											value="#{sirketBean.sirket.calisansayisi}"></p:inputText>
 
 										<h:outputText value="Adres :" />
-										<p:inputText id="adres" value="#{sirketBean.sirket.adresi}"></p:inputText>
+										<p:inputText id="adres" style="width:250px" value="#{sirketBean.sirket.adresi}"></p:inputText>
 
-										<h:outputText value="Ülke :" />
-										<p:inputText id="ulke" value="#{sirketBean.sirket.ulke}"></p:inputText>
 
-										<h:outputText value="Şehir :" />
-										<p:inputText id="sehir" value="#{sirketBean.sirket.sehir}"></p:inputText>
+<p:outputLabel for="ülke" value="Ülke :" />
+										<h:selectOneMenu id="ülke"	value="#{sirketBean.sirket.ulke}" style="width:250px">
+							<f:selectItem itemLabel="Seçin" itemValue="" />
+							<f:selectItem itemLabel="Türkiye" itemValue="Türkiye" />
+							<f:selectItem itemLabel="İngiltere" itemValue="İngiltere" />
+							<f:selectItem itemLabel="ABD" itemValue="ABD" />
+							<f:selectItem itemLabel="Fransa" itemValue="Fransa" />
+							<f:selectItem itemLabel="Avusturya" itemValue="Avusturya" />
+							<f:selectItem itemLabel="İsviçre" itemValue="İsviçre" />
+						</h:selectOneMenu>
 
+										<p:outputLabel for="sehir" value="Şehir :" />
+										<h:selectOneMenu id="sehir"	value="#{sirketBean.sirket.sehir}" style="width:250px">
+							<f:selectItem itemLabel="Seçin" itemValue="" />
+							<f:selectItem itemLabel="Ankara" itemValue="Ankara" />
+							<f:selectItem itemLabel="İstanbul" itemValue="İstanbul" />
+							<f:selectItem itemLabel="İzmir" itemValue="İzmir" />
+						</h:selectOneMenu>
+						
+						
 										<h:outputText value="Web Adresi :" />
-										<p:inputText id="webadresi"
+										<p:inputText id="webadresi" style="width:250px"
 											value="#{sirketBean.sirket.webadresi}"></p:inputText>
 
 
 
 										<p:commandButton value="Kaydet" update="frmSirket"
-											ajax="true" action="sirket.xhtml"></p:commandButton>
+											ajax="true" action="#{sirketBean.olustur}"></p:commandButton>
 										<p:commandButton value="İptal" update="frmSirket" ajax="true"
 											action="sirket.xhtml"></p:commandButton>
 
@@ -200,7 +225,6 @@
 			</div>
 		</div>
 	</div>
-
 
 
 

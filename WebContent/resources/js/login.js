@@ -1,5 +1,5 @@
 // Toggle Function
-$('.toggle').click(function(){
+$('.toggle').click(function() {
   // Switches the Icon
   $(this).children('i').toggleClass('fa-pencil');
   // Switches the forms  

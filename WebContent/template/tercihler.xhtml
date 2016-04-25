@@ -167,11 +167,11 @@
 										<h:outputText value="Sektör :" />
 										<p:inputText id="sektor" value="#{tercihlerBean.tercihler.sektor}"></p:inputText>
 
-										<h:outputText alue="Bölüm:" />
+										<h:outputText value="Bölüm:" />
 										<p:inputText id="bolum" value="#{tercihlerBean.tercihler.bolum}"></p:inputText>
 
 										<p:commandButton value="Kaydet" update="frmTercihler" ajax="true"
-											action="tercihler.xhtml"></p:commandButton>
+											action="#{tercihlerBean.kaydet}"></p:commandButton>
 										<p:commandButton value="İptal" update="frmTercihler" ajax="true"
 											action="tercihler.xhtml"></p:commandButton>
 
