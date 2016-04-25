@@ -143,7 +143,7 @@
 					</div>
 				</div>
 
-	<h:outputStylesheet name="css/form.css"></h:outputStylesheet>
+				<h:outputStylesheet name="css/form.css"></h:outputStylesheet>
 
 				<div class="header_bottom_right">
 					<div class="main">
@@ -154,25 +154,31 @@
 
 										<f:facet name="header">DENEYİM BİLGİSİ</f:facet>
 										<h:outputText value="Pozisyon :" />
-										<p:inputText id="pozisyon" value="#{deneyimBean.deneyim.pozisyon}"></p:inputText>
+										<p:inputText id="pozisyon"
+											value="#{deneyimBean.deneyim.pozisyon}"></p:inputText>
 
 										<h:outputText value="Şirket Adı :" />
-										<p:inputText id="sirketadi" value="#{deneyimBean.deneyim.sirketadi}"></p:inputText>
+										<p:inputText id="sirketadi"
+											value="#{deneyimBean.deneyim.sirketadi}"></p:inputText>
 
 										<p:outputLabel for="sehir" value="Şehir :" />
-										<h:selectOneMenu id="sehir"	value="#{deneyimBean.deneyim.sehir}" style="width:250px">
-							<f:selectItem itemLabel="Seçin" itemValue="" />
-							<f:selectItem itemLabel="Ankara" itemValue="Ankara" />
-							<f:selectItem itemLabel="İstanbul" itemValue="İstanbul" />
-							<f:selectItem itemLabel="İzmir" itemValue="İzmir" />
-						</h:selectOneMenu>
-						
-						
-          <h:outputText value="Başlama T. :" />
-        <p:inputMask id="date" value="#{deneyimBean.deneyim.isebaslamatarihi}" mask="99/99/9999"/> 
- 
+										<h:selectOneMenu id="sehir"
+											value="#{deneyimBean.deneyim.sehir}" style="width:250px">
+											<f:selectItem itemLabel="Seçin" itemValue="" />
+											<f:selectItem itemLabel="Ankara" itemValue="Ankara" />
+											<f:selectItem itemLabel="İstanbul" itemValue="İstanbul" />
+											<f:selectItem itemLabel="İzmir" itemValue="İzmir" />
+										</h:selectOneMenu>
+
+
+										<h:outputText value="Başlama T. :" />
+										<p:inputMask id="date"
+											value="#{deneyimBean.deneyim.isebaslamatarihi}"
+											mask="99/99/9999" />
+
 										<h:outputText value="Bitiş T. :" />
-        <p:inputMask id="date2" value="#{deneyimBean.deneyim.bitistarihi}" mask="99/99/9999"/> 
+										<p:inputMask id="date2"
+											value="#{deneyimBean.deneyim.bitistarihi}" mask="99/99/9999" />
 
 										<p:commandButton value="Kaydet" update="frmDeneyim"
 											ajax="true" action="#{deneyimBean.olustur}"></p:commandButton>

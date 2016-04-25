@@ -133,11 +133,9 @@
 					<div class="categories">
 						<ul>
 							<h3>Profili tamamla</h3>
-							<li><a href="profil.xhtml">Kişisel Bilgiler</a></li>
-							<li><a href="deneyim.xhtml">Deneyim</a></li>
-							<li><a href="egitim.xhtml">Eğitim</a></li>
-							<li><a href="tercihler.xhtml">Tercihler</a></li>
-							<li><a href="referans.xhtml">Referanslar</a></li>
+							<li><a href="sirket.xhtml">Şirket Bilgileri</a></li>
+							<li><a href="ilan.xhtml">İlan oluştur</a></li>
+
 
 						</ul>
 					</div>
@@ -155,14 +153,34 @@
 
 										<f:facet name="header">İlan Ver</f:facet>
 										<h:outputText value="Şehir :" />
-										<p:inputText id="sehir" value="#{ilanBean.ilan.sehir}"></p:inputText>
+										<h:selectOneMenu id="sehir" value="#{ilanBean.ilan.sehir}"
+											style="width:250px">
+											<f:selectItem itemLabel="Seçin" itemValue="" />
+											<f:selectItem itemLabel="Ankara" itemValue="Ankara" />
+											<f:selectItem itemLabel="İstanbul" itemValue="İstanbul" />
+											<f:selectItem itemLabel="İzmir" itemValue="İzmir" />
+										</h:selectOneMenu>
 
 										<h:outputText value="Pozisyon :" />
 										<p:inputText id="pozisyon" value="#{ilanBean.ilan.pozisyon}"></p:inputText>
 
-										<h:outputText value="Sektör :" />
-										<p:inputText id="sektor"
-											value="#{ilanBean.ilan.sektor}"></p:inputText>
+										<p:outputLabel for="sektör" value="Sektör :" />
+										<h:selectOneMenu id="sektör" value="#{ilanBean.ilan.sektor}"
+											style="width:250px">
+											<f:selectItem itemLabel="Seçin" itemValue="" />
+											<f:selectItem itemLabel="Bilişim" itemValue="Bilişim" />
+											<f:selectItem itemLabel="Sağlık" itemValue="Sağlık" />
+											<f:selectItem itemLabel="Yazılım" itemValue="Yazılım" />
+											<f:selectItem itemLabel="İnşaat" itemValue="İnşaat" />
+											<f:selectItem itemLabel="Satış-Pazarlama"
+												itemValue="Satış-Pazarlama" />
+											<f:selectItem itemLabel="Mühendislik" itemValue="Mühendislik" />
+											<f:selectItem itemLabel="Genel yönetim"
+												itemValue="Genel yönetim" />
+											<f:selectItem itemLabel="Grafik Tasarım"
+												itemValue="Grafik Tasarım" />
+											<f:selectItem itemLabel="Diğer" itemValue="Diğer" />
+										</h:selectOneMenu>
 
 										<p:outputLabel for="ilantarihi" value="İlan Tarihi :" />
 										<p:calendar id="ilantarihi"
@@ -172,21 +190,32 @@
 										<h:outputText value="Şirket Adi :" />
 										<p:inputText id="sirket" value="#{ilanBean.ilan.sirket}"></p:inputText>
 
-										<h:outputText alue="Eğitim:" />
-										<p:inputText id="egitim" value="#{ilanBean.ilan.egitim}"></p:inputText>
+
+                                        	<p:outputLabel for="egitim" value="Eğitim :" />
+										<h:selectOneMenu id="egitim"
+											value="#{ilanBean.ilan.egitim}">
+											<f:selectItem itemLabel="Seçin" itemValue="" />
+											<f:selectItem itemLabel="İlköğretim" itemValue="İlköğretim" />
+											<f:selectItem itemLabel="Ortaokul" itemValue="Ortaokul" />
+											<f:selectItem itemLabel="Lise" itemValue="Lise" />
+											<f:selectItem itemLabel="Lisans" itemValue="Lisans" />
+											<f:selectItem itemLabel="Yüksek Lisans"
+												itemValue="Yüksek Lisans" />
+											<f:selectItem itemLabel="Doktora" itemValue="Doktora" />
+										</h:selectOneMenu>
 
 										<h:outputText value="Deneyim :" />
 										<p:inputText id="deneyim" value="#{ilanBean.ilan.deneyim}"></p:inputText>
 
-										<h:outputText alue="Askerlik:" />
-										<p:inputText id="askerlik" value="#{ilanBean.ilan.askerlik}"></p:inputText>
+										<h:outputText value="Askerlik:" />
+										<p:selectBooleanCheckbox value="#{ilanBean.ilan.askerlik}" />
 
 
 
-										<p:commandButton value="Kaydet" update="frmIlan"
-											ajax="true" action="#{ilanBean.kaydet}"></p:commandButton>
-										<p:commandButton value="İptal" update="frmDeneyim" ajax="true"
-											action="İlan.xhtml"></p:commandButton>
+										<p:commandButton value="Kaydet" update="frmIlan" ajax="true"
+											action="#{ilanBean.kaydet}"></p:commandButton>
+										<p:commandButton value="İptal" update="frmIlan" ajax="true"
+											action="ilan.xhtml"></p:commandButton>
 
 
 									</p:panelGrid>

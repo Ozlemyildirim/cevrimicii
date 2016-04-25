@@ -156,24 +156,53 @@
 
 										<f:facet name="header">Tercihler</f:facet>
 										<h:outputText value="Ülke :" />
-										<p:inputText id="ulke" value="#{tercihlerBean.tercihler.ulke}"></p:inputText>
+										<h:selectOneMenu id="ülke" value="#{tercihlerBean.tercihler.ulke}"
+											style="width:250px">
+											<f:selectItem itemLabel="Seçin" itemValue="" />
+											<f:selectItem itemLabel="Türkiye" itemValue="Türkiye" />
+											<f:selectItem itemLabel="İngiltere" itemValue="İngiltere" />
+											<f:selectItem itemLabel="ABD" itemValue="ABD" />
+											<f:selectItem itemLabel="Fransa" itemValue="Fransa" />
+											<f:selectItem itemLabel="Avusturya" itemValue="Avusturya" />
+											<f:selectItem itemLabel="İsviçre" itemValue="İsviçre" />
+										</h:selectOneMenu>
 
 										<h:outputText value="Şehir :" />
-										<p:inputText id="sehir" value="#{tercihlerBean.tercihler.sehir}"></p:inputText>
+										<h:selectOneMenu id="sehir" value="#{tercihlerBean.tercihler.sehir}"
+											style="width:250px">
+											<f:selectItem itemLabel="Seçin" itemValue="" />
+											<f:selectItem itemLabel="Ankara" itemValue="Ankara" />
+											<f:selectItem itemLabel="İstanbul" itemValue="İstanbul" />
+											<f:selectItem itemLabel="İzmir" itemValue="İzmir" />
+										</h:selectOneMenu>
 
 										<h:outputText value="Pozisyon :" />
-										<p:inputText id="pozisyon" value="#{tercihlerBean.tercihler.pozisyon}"></p:inputText>
+										<p:inputText id="pozisyon"
+											value="#{tercihlerBean.tercihler.pozisyon}"></p:inputText>
 
-										<h:outputText value="Sektör :" />
-										<p:inputText id="sektor" value="#{tercihlerBean.tercihler.sektor}"></p:inputText>
+										<p:outputLabel for="sektör" value="Sektör :" />
+										<h:selectOneMenu id="sektör"
+											value="#{sirketBean.sirket.sektoru}" style="width:250px">
+											<f:selectItem itemLabel="Seçin" itemValue="" />
+											<f:selectItem itemLabel="Bilişim" itemValue="Bilişim" />
+											<f:selectItem itemLabel="Sağlık" itemValue="Sağlık" />
+											<f:selectItem itemLabel="Yazılım" itemValue="Yazılım" />
+											<f:selectItem itemLabel="İnşaat" itemValue="İnşaat" />
+											<f:selectItem itemLabel="Satış-Pazarlama"
+												itemValue="Satış-Pazarlama" />
+											<f:selectItem itemLabel="Mühendislik" itemValue="Mühendislik" />
+											<f:selectItem itemLabel="Genel yönetim"
+												itemValue="Genel yönetim" />
+											<f:selectItem itemLabel="Grafik Tasarım"
+												itemValue="Grafik Tasarım" />
+											<f:selectItem itemLabel="Diğer" itemValue="Diğer" />
+										</h:selectOneMenu>
 
-										<h:outputText value="Bölüm:" />
-										<p:inputText id="bolum" value="#{tercihlerBean.tercihler.bolum}"></p:inputText>
 
-										<p:commandButton value="Kaydet" update="frmTercihler" ajax="true"
-											action="#{tercihlerBean.kaydet}"></p:commandButton>
-										<p:commandButton value="İptal" update="frmTercihler" ajax="true"
-											action="tercihler.xhtml"></p:commandButton>
+										<p:commandButton value="Kaydet" update="frmTercihler"
+											ajax="true" action="#{tercihlerBean.kaydet}"></p:commandButton>
+										<p:commandButton value="İptal" update="frmTercihler"
+											ajax="true" action="tercihler.xhtml"></p:commandButton>
 
 									</p:panelGrid>
 								</h:form>

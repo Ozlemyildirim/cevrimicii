@@ -21,7 +21,6 @@ public class Tercihler extends BaseEntity {
 	private String ulke;
 	private String sehir;
 	private String sektor; 
-	private String bolum;
 	private String pozisyon;
 	
 	@Id
@@ -64,19 +63,5 @@ public class Tercihler extends BaseEntity {
 	public void setPozisyon(String pozisyon) {
 		this.pozisyon = pozisyon;
 	}
-	@Column(name = "BOLUM")
-	public String getBolum() {
-		return bolum;
-	}
-	public void setBolum(String bolum) {
-		this.bolum = bolum;
-	}
-	
-
-
-
-
-
-
 
 }
