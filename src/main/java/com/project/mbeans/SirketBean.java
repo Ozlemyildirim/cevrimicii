@@ -29,7 +29,7 @@ public class SirketBean implements Serializable {
 	@Autowired
 	private transient SirketService SirketService;
 
-	private Sirket Sirket;
+	private Sirket sirket;
 	private String mesaj;
 	List<Sirket> SirketList;
 
@@ -39,19 +39,19 @@ public class SirketBean implements Serializable {
 	}
 
 	public void olustur() {
-		System.out.println(Sirket.toString());
+		System.out.println(sirket.toString());
 
-		if (this.Sirket != null && this.Sirket.getId() != null) {
-			SirketService.update(Sirket);
+		if (this.sirket != null && this.sirket.getId() != null) {
+			SirketService.update(sirket);
 		} else {
-			SirketService.save(Sirket);
+			SirketService.save(sirket);
 		}
 
 		SirketList = SirketService.getAll();
 
 		FacesContext.getCurrentInstance().addMessage("Kayýt",
 				new FacesMessage("Sirket Kaydedildi"));
-		Sirket = new Sirket();
+		sirket = new Sirket();
 	}
 
 	public void sil(Long id) {
@@ -64,22 +64,22 @@ public class SirketBean implements Serializable {
 
 	public void duzenle(Long id) {
 		Sirket entity = SirketService.getById(id);
-		this.Sirket = entity;
+		this.sirket = entity;
 	}
 
 	public void yeni() {
-		this.Sirket = new Sirket();
+		this.sirket = new Sirket();
 	}
 
 	public Sirket getSirket() {
-		if (Sirket == null) {
-			Sirket = new Sirket();
+		if (sirket == null) {
+			sirket = new Sirket();
 		}
-		return Sirket;
+		return sirket;
 	}
 
 	public void setSirket(Sirket Sirket) {
-		this.Sirket = Sirket;
+		this.sirket = Sirket;
 	}
 
 	public String getMesaj() {

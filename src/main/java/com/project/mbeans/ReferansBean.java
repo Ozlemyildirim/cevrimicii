@@ -30,7 +30,6 @@ public class ReferansBean implements Serializable{
 	@PostConstruct
 	public void init() {
 		System.out.println("referansBean construct");
-		referansService=new ReferansService();	
 		referansList=referansService.getAll();
 	}
 	public void kaydet() {

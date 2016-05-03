@@ -21,6 +21,7 @@ public class EgitimBean implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 	@Autowired
 	private transient EgitimService egitimService;
 	private Egitim egitim;
@@ -30,7 +31,6 @@ public class EgitimBean implements Serializable {
 	@PostConstruct
 	public void init() {
 		System.out.println("deneyimBean construct");
-		egitimService = new EgitimService();
 		egitimList = egitimService.getAll();
 	}
 

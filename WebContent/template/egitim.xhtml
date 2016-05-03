@@ -230,7 +230,7 @@
 											<f:selectItem itemLabel="  Diğer" itemValue="Diğer" />
 										</h:selectManyCheckbox>
 										<h:outputText value="Yetkinlik Adı :" />
-										<p:inputText id="yetkinlikler"
+										<p:inputText 
 											value="#{egitimBean.egitim.yetkinlikler_adi}"></p:inputText>
 
 										<h:outputText value="Yetkinlik Seviyesi :" />
@@ -243,7 +243,7 @@
 										</h:selectOneMenu>
 
 										<h:outputText value="Kurs Alınan Alan :" />
-										<p:inputText id="kurslar"
+										<p:inputText
 											value="#{egitimBean.egitim.kurs_adi}"></p:inputText>
 
 										<h:outputText value="Kurs Alınan Kurum :" />
@@ -251,7 +251,7 @@
 											value="#{egitimBean.egitim.kurs_kurum}"></p:inputText>
 
 										<h:outputText value="Sınav Adı :" />
-										<p:inputText id="sınavlar"
+										<p:inputText 
 											value="#{egitimBean.egitim.sınav_adi}"></p:inputText>
 
 										<h:outputText value="Sınav Notu :" />
@@ -259,11 +259,11 @@
 											value="#{egitimBean.egitim.sınav_notu}"></p:inputText>
 
 										<h:outputText value="Sertifika Alınan Alan :" />
-										<p:inputText id="sertifikalar"
+										<p:inputText 
 											value="#{egitimBean.egitim.sertifika_alani}"></p:inputText>
 
 										<h:outputText value="Sertifika Adı :" />
-										<p:inputText id="sertifikalar"
+										<p:inputText 
 											value="#{egitimBean.egitim.sertifika_adi}"></p:inputText>
 
 										<h:outputText value="Sertifika Alınan Kurum :" />

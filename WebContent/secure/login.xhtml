@@ -15,39 +15,55 @@
 			content="width=device-width, initial-scale=1, maximum-scale=1" />
 
 		<h:outputStylesheet name="css/login.css"></h:outputStylesheet>
-		<h:outputScript library="js" name="login.js" target="body" />	
-	
-	
+		<h:outputScript library="js" name="jquery-1.7.2.min.js" target="body" />
+		<h:outputScript library="js" name="login.js" target="body" />
+		<h:outputScript library="js" name="jquery-1.7.2.min.js" target="body" />
+
+
 	</f:facet>
 </h:head>
 <h:body>
 
-<div class="pen-title">
-  <h1>Giriş Yapın</h1><span> <i class='fa fa-paint-brush'></i> <i class='fa fa-code'></i> </span>
-</div>
-<div class="module form-module">
-  <div class="toggle"><i class="fa fa-times fa-pencil"></i>
-    <div class="tooltip">Click Me</div>
-  </div>
-  <div class="form">
-    <h2>Login to your account</h2>
-    <form>
-      <input type="text" placeholder="Username"/>
-      <input type="password" placeholder="Password"/>
-      <button>Login</button>
-    </form>
-  </div>
-  <div class="form">
-    <h2>Create an account</h2>
-    <form>
-      <input type="text" placeholder="Username"/>
-      <input type="password" placeholder="Password"/>
-      <input type="email" placeholder="Email Address"/>
-      <input type="tel" placeholder="Phone Number"/>
-      <button>Register</button>
-    </form>
-  </div>
-  <div class="cta"><a href=" ">Forgot your password?</a></div>
-</div>
+	<div class="pen-title">
+		<h1>Giriş Yapın</h1>
+		<span> <i class='fa fa-paint-brush'></i> <i class='fa fa-code'></i>
+		</span>
+	</div>
+	<div class="module form-module">
+		<div class="toggle">
+			<i class="fa fa-times fa-pencil"></i>
+			<div class="tooltip">Click Me</div>
+		</div>
+		<div class="form">
+			<h2>Login to your account</h2>
+			<h:form>
+				<h:outputText value="Username :" />
+				<h:inputText type="text" placeholder="Username"
+					value="#{loginBean.username}" />
+				<h:outputText value="Password :" />
+				<h:inputText type="password" placeholder="Password"
+					value="#{loginBean.password}" />
+				<h:commandButton action="#{loginBean.logIn}" value="Login"
+					ajax="false"></h:commandButton>
+			</h:form>
+		</div>
+		<div class="form">
+			<h2>Create an account</h2>
+			<h:form>
+				<h:outputText value="Username :" />
+				<h:inputText type="text" placeholder="Username"
+					value="#{kullaniciBean.kullanici.username}" />
+				<h:outputText value="Password :" />
+				<h:inputText id="Password" type="password" placeholder="Password"
+					value="#{kullaniciBean.kullanici.password}" />
+
+				<h:commandButton action="#{kullaniciBean.kaydet}" value="KAYDET"
+					ajax="false"></h:commandButton>
+			</h:form>
+		</div>
+		<div class="cta">
+			<a href=" ">Forgot your password?</a>
+		</div>
+	</div>
 </h:body>
 </html>

@@ -30,7 +30,6 @@ public class TercihlerBean implements Serializable{
 	@PostConstruct
 	public void init() {
 		System.out.println("tercihlerBean construct");
-		tercihlerService=new TercihlerService();	
 		tercihlerList=tercihlerService.getAll();
 	}
 	public void kaydet() {

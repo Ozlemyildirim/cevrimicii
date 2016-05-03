@@ -144,68 +144,70 @@
 				</div>
 
 
-			
-	<h:outputStylesheet  name="css/form.css"  ></h:outputStylesheet>
-	
-	 <div class="header_bottom_right">	
-	 <div class="main">
-    <div class="content">		
-<div class="form-style-3">
-<form>
-<fieldset><legend>Personal</legend>
-<label for="field1"><span>Ad <span class="required">*</span></span><input type="text" class="input-field" name="field1" value="" /></label>
 
+				<h:outputStylesheet name="css/form.css"></h:outputStylesheet>
 
-<label for="field2"><span>Soyad <span class="required">*</span></span><input type="text" class="input-field" name="field2" value="" /></label>
+				<div class="header_bottom_right">
+					<div class="main">
+						<div class="content">
+							<div class="form-style-3">
+								<h:form id="frmProfil">
+									<p:panelGrid columns="2">
+										<f:facet name="header">KİŞİSEL BİLGİLER</f:facet>
+										<h:outputText value="Adı :" />
+										<p:inputText id="adi" value="#{profilBean.profil.adi}"></p:inputText>
 
+										<h:outputText value="Soyadı :" />
+										<p:inputText id="soyadi" value="#{profilBean.profil.soyadi}"></p:inputText>
 
-<label for="field3"><span>Cinsiyet</span><select name="field3" class="select-field">
-<option value="Appointment">Kadın</option>
-<option value="Interview">Erkek</option>
-</select></label>
+										<h:outputText value="CİNSİYET: " />
+										<p:selectManyCheckbox id="cinsiyet"
+											value="#{profilBean.profil.cinsiyet}" required="true"
+											label="cinsiyet">
+											<f:selectItem itemLabel="KADIN" itemValue="KADIN" />
+											<f:selectItem itemLabel="ERKEK" itemValue="ERKEK" />
+										</p:selectManyCheckbox>
 
+										<h:outputText value="E-MAİL ADRESİ: " />
+										<p:inputText value="#{profilBean.profil.eposta}"
+											required="true" label="Email" />
+										<h:outputText value="TELEFON NUMARASI: " />
+										<p:inputText value="#{profilBean.profil.telefon}"
+											required="true" label="TELEFON" />
+										<p:outputLabel for="dtarihi" value="DOĞUM TARİHİ:" />
+										<p:calendar id="dtarihi" value="#{profilBean.profil.dtarihi}"
+											pattern="dd-MM-yyyy" />
 
-<label for="field4"><span>Eposta <span class="required">*</span></span><input type="email" class="input-field" name="field4" value="" /></label>
+										<h:outputText value="Adres :" />
+										<p:inputText id="adres" value="#{profilBean.profil.adres}"></p:inputText>
 
-<label for="field5"><span>Telefon <span class="required">*</span></span>
+										<h:outputText value="Medeni Hal :" />
+										<p:selectManyCheckbox id="medenihal"
+											value="#{profilBean.profil.medenihal}" required="true"
+											label="medenihal">
+											<f:selectItem itemLabel="EVLİ" itemValue="EVLİ" />
+											<f:selectItem itemLabel="BEKAR" itemValue="BEKAR" />
+										</p:selectManyCheckbox>
 
-        <p:inputMask id="phone" value="" mask="(999) 999-9999"/></label>
-        
-<label for="field5"><span>DOB <span class="required">*</span></span>
-        <p:inputMask id="date" value="#{maskView.date}" mask="99/99/9999"/></label>
- 
+										<h:outputText value="Askerlik :" />
+										<p:selectBooleanCheckbox id="askerlik"
+											value="#{profilBean.profil.askerlik}"></p:selectBooleanCheckbox>
 
+										<p:commandButton value="Kaydet" update="frmProfil" ajax="true"
+											action="#{profilBean.kaydet}"></p:commandButton>
+										<p:commandButton value="İptal" update="frmProfil" ajax="true"
+											action="profil.xhtml"></p:commandButton>
+									</p:panelGrid>
+								</h:form>
+							</div>
+						</div>
 
-<label for="field7"><span>Adres <span class="required">*</span></span><input type="text" class="input-field" name="field7" value="" /></label>
+					</div>
 
-
-<label for="field8"><span>Medeni Hal</span><select name="field8" class="select-field">
-<option value="Evli">Evli</option>
-<option value="Bekar">Bekar</option>
-</select></label>
-
-<label for="field9"><span>Askerlik durumu</span><select name="field9" class="select-field">
-<option value="">Yaptı</option>
-<option value="">Yapmadı</option>
-</select></label>
-
-
-
-</fieldset>
-
-<fieldset>
-<label><span>&nbsp;</span><input type="submit" value="Submit" actionListener=" " /></label> 
-</fieldset>
-</form>
-</div>
-</div>
-					
-	</div>				
-					
-    </div>
- </div>
-</div>
-</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
 
