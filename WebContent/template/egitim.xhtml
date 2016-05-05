@@ -151,132 +151,150 @@
 						<div class="content">
 							<div class="form-style-3">
 								<h:form id="frmEgitim">
-									<p:panelGrid columns="2">
+									<p:panelGrid>
 
-										<p:outputLabel value="Eğitim Seviyesi :" />
-										<h:selectOneMenu id="egitimseviyesi"
-											value="#{egitimBean.egitim.egitimseviyesi}">
-											<f:selectItem itemLabel="Seçin" itemValue="" />
-											<f:selectItem itemLabel="İlköğretim" itemValue="İlköğretim" />
-											<f:selectItem itemLabel="Ortaokul" itemValue="Ortaokul" />
-											<f:selectItem itemLabel="Lise" itemValue="Lise" />
-											<f:selectItem itemLabel="Lisans" itemValue="Lisans" />
-											<f:selectItem itemLabel="Yüksek Lisans"
-												itemValue="Yüksek Lisans" />
-											<f:selectItem itemLabel="Doktora" itemValue="Doktora" />
-										</h:selectOneMenu>
+										<p:fieldset legend="Eğitim" toggleable="true">
+											<p:ajax event="toggle" />
+											<h:panelGrid columns="2" cellpadding="5">
+												<h:outputText value="Eğitim Seviyesi" />
+												<h:selectOneMenu id="egitimseviyesi"
+													value="#{egitimBean.egitim.egitimseviyesi}">
+													<f:selectItem itemLabel="Seçin" itemValue="" />
+													<f:selectItem itemLabel="İlköğretim" itemValue="İlköğretim" />
+													<f:selectItem itemLabel="Ortaokul" itemValue="Ortaokul" />
+													<f:selectItem itemLabel="Lise" itemValue="Lise" />
+													<f:selectItem itemLabel="Lisans" itemValue="Lisans" />
+													<f:selectItem itemLabel="Yüksek Lisans"
+														itemValue="Yüksek Lisans" />
+													<f:selectItem itemLabel="Doktora" itemValue="Doktora" />
+												</h:selectOneMenu>
 
-										<h:outputText value="Okul Adı :" />
-										<p:inputText id="okuladı" value="#{egitimBean.egitim.okuladi}"></p:inputText>
+												<h:outputText value="Okul Adı :" />
+												<p:inputText value="#{egitimBean.egitim.okuladi}"></p:inputText>
 
-										<p:outputLabel for="mezuniyetyili" value="Mezuniyet Yılı :" />
-										<p:calendar id="mezuniyetyili"
-											value="#{egitimBean.egitim.mezuniyetyili}"
-											pattern="dd/MM/yyyy" mask="true" />
+												<h:outputText value="Mezuniyet Yılı :" />
+												<h:outputText value="#{egitimBean.egitim.mezuniyetyili}">
+													<f:convertDateTime pattern="MM/dd/yyyy" />
+												</h:outputText>
 
-										<h:outputText value="Diploma Notu :" />
-										<p:inputText id="diplomanotu"
-											value="#{egitimBean.egitim.diplomanotu}"></p:inputText>
+												<h:outputText value="Diploma Notu :" />
+												<p:inputText value="#{egitimBean.egitim.diplomanotu}"></p:inputText>
+
+											</h:panelGrid>
+										</p:fieldset>
+
+										<p:fieldset legend="Staj" toggleable="true">
+											<p:ajax event="toggle" />
+											<h:panelGrid columns="2" cellpadding="5">
+												<h:outputText value="Staj Yapılan Şirket :" />
+												<p:inputText id="staj_sirketadi"
+													value="#{egitimBean.egitim.staj_sirketadi}"></p:inputText>
+
+												<h:outputText value="Şirket Sektörü :" />
+												<h:selectOneMenu id="sektör"
+													value="#{egitimBean.egitim.staj_sektor}"
+													style="width:250px">
+													<f:selectItem itemLabel="Seçin" itemValue="" />
+													<f:selectItem itemLabel="Bilişim" itemValue="Bilişim" />
+													<f:selectItem itemLabel="Sağlık" itemValue="Sağlık" />
+													<f:selectItem itemLabel="Yazılım" itemValue="Yazılım" />
+													<f:selectItem itemLabel="İnşaat" itemValue="İnşaat" />
+													<f:selectItem itemLabel="Satış-Pazarlama"
+														itemValue="Satış-Pazarlama" />
+													<f:selectItem itemLabel="Mühendislik"
+														itemValue="Mühendislik" />
+													<f:selectItem itemLabel="Genel yönetim"
+														itemValue="Genel yönetim" />
+													<f:selectItem itemLabel="Grafik Tasarım"
+														itemValue="Grafik Tasarım" />
+													<f:selectItem itemLabel="Diğer" itemValue="Diğer" />
+												</h:selectOneMenu>
+
+												<p:outputLabel for="stajbaslamatarihi"
+													value="Staj Başlama Tarihi :" />
+												<p:calendar id="stajbaslamatarihi"
+													value="#{egitimBean.egitim.staj_baslamatarihi}"
+													pattern="dd/MM/yyyy" mask="true" />
+
+												<p:outputLabel for="stajbitistarihi"
+													value="Staj Bitiş Tarihi :" />
+												<p:calendar id="stajbitistarihi"
+													value="#{egitimBean.egitim.staj_bitistarihi}"
+													pattern="dd/MM/yyyy" mask="true" />
+
+												<h:outputText value="Staj Süresi :" />
+												<p:inputText id="staj_suresi"
+													value="#{egitimBean.egitim.staj_suresi}"></p:inputText>
+											</h:panelGrid>
+										</p:fieldset>
 
 
-										<h:outputText value="Staj Yapılan Şirket :" />
-										<p:inputText id="staj_sirketadi"
-											value="#{egitimBean.egitim.staj_sirketadi}"></p:inputText>
+										<p:fieldset legend="Yabancı Diller" toggleable="true">
+											<p:ajax event="toggle" />
+											<h:panelGrid columns="2" cellpadding="5">
+												<h:outputText value="Yabancı Dil :" />
 
-										<h:outputText value="Şirket Sektörü :" />
-										<h:selectOneMenu id="sektör"
-											value="#{egitimBean.egitim.staj_sektor}" style="width:250px">
-											<f:selectItem itemLabel="Seçin" itemValue="" />
-											<f:selectItem itemLabel="Bilişim" itemValue="Bilişim" />
-											<f:selectItem itemLabel="Sağlık" itemValue="Sağlık" />
-											<f:selectItem itemLabel="Yazılım" itemValue="Yazılım" />
-											<f:selectItem itemLabel="İnşaat" itemValue="İnşaat" />
-											<f:selectItem itemLabel="Satış-Pazarlama"
-												itemValue="Satış-Pazarlama" />
-											<f:selectItem itemLabel="Mühendislik" itemValue="Mühendislik" />
-											<f:selectItem itemLabel="Genel yönetim"
-												itemValue="Genel yönetim" />
-											<f:selectItem itemLabel="Grafik Tasarım"
-												itemValue="Grafik Tasarım" />
-											<f:selectItem itemLabel="Diğer" itemValue="Diğer" />
-										</h:selectOneMenu>
+											</h:panelGrid>
+										</p:fieldset>
 
-										<p:outputLabel for="stajbaslamatarihi"
-											value="Staj Başlama Tarihi :" />
-										<p:calendar id="stajbaslamatarihi"
-											value="#{egitimBean.egitim.staj_baslamatarihi}"
-											pattern="dd/MM/yyyy" mask="true" />
+										<p:fieldset legend="Yetkinlikler" toggleable="true">
+											<p:ajax event="toggle" />
+											<h:panelGrid columns="2" cellpadding="5">
+												<h:outputText value="Yetkinlik Adı :" />
+												<p:inputText value="#{egitimBean.egitim.yetkinlikler_adi}"></p:inputText>
 
-										<p:outputLabel for="stajbitistarihi"
-											value="Staj Bitiş Tarihi :" />
-										<p:calendar id="stajbitistarihi"
-											value="#{egitimBean.egitim.staj_bitistarihi}"
-											pattern="dd/MM/yyyy" mask="true" />
+												<h:outputText value="Yetkinlik Seviyesi :" />
+												<h:selectOneMenu
+													value="#{egitimBean.egitim.yetkinlikler_seviye}">
+													<f:selectItem itemLabel="Seçin" itemValue=" " />
+													<f:selectItem itemLabel="Başlangıç" itemValue="Başlangıç" />
+													<f:selectItem itemLabel="Orta" itemValue="Orta" />
+													<f:selectItem itemLabel="İleri" itemValue="İleri" />
+												</h:selectOneMenu>
+											</h:panelGrid>
+										</p:fieldset>
 
-										<h:outputText value="Staj Süresi :" />
-										<p:inputText id="staj_suresi"
-											value="#{egitimBean.egitim.staj_suresi}"></p:inputText>
+										<p:fieldset legend="Kurslar" toggleable="true">
+											<p:ajax event="toggle" />
+											<h:panelGrid columns="2" cellpadding="5">
+												<h:outputText value="Kurs Alınan Alan :" />
+												<p:inputText value="#{egitimBean.egitim.kurs_adi}"></p:inputText>
 
+												<h:outputText value="Kurs Alınan Kurum :" />
+												<p:inputText id="kurslar"
+													value="#{egitimBean.egitim.kurs_kurum}"></p:inputText>
+											</h:panelGrid>
+										</p:fieldset>
+										<p:fieldset legend="Sınavlar" toggleable="true">
+											<p:ajax event="toggle" />
+											<h:panelGrid columns="2" cellpadding="5">
+												<h:outputText value="Sınav Adı :" />
+												<p:inputText value="#{egitimBean.egitim.sınav_adi}"></p:inputText>
 
+												<h:outputText value="Sınav Notu :" />
+												<p:inputText id="sınavlar"
+													value="#{egitimBean.egitim.sınav_notu}"></p:inputText>
+											</h:panelGrid>
+										</p:fieldset>
+										<p:fieldset legend="Sertifikalar" toggleable="true">
+											<p:ajax event="toggle" />
+											<h:panelGrid columns="2" cellpadding="5">
+												<h:outputText value="Sertifika Alınan Alan :" />
+												<p:inputText value="#{egitimBean.egitim.sertifika_alani}"></p:inputText>
 
-										<h:outputText value="Yabancı Dil :" />
-										<h:selectManyCheckbox id="yabancıdiller"
-											value="#{egitimBean.egitim.yabancıdiller}"
-											style="width:250px">
-											<f:selectItem itemLabel="İngilizce " itemValue="İngilizce" />
-											<f:selectItem itemLabel="  Almanca " itemValue="Almanca" />
-											<f:selectItem itemLabel="  Fransızca " itemValue="Fransızca" />
-											<f:selectItem itemLabel="  Çince " itemValue="Çince" />
-											<f:selectItem itemLabel="  Diğer" itemValue="Diğer" />
-										</h:selectManyCheckbox>
-										<h:outputText value="Yetkinlik Adı :" />
-										<p:inputText 
-											value="#{egitimBean.egitim.yetkinlikler_adi}"></p:inputText>
+												<h:outputText value="Sertifika Adı :" />
+												<p:inputText value="#{egitimBean.egitim.sertifika_adi}"></p:inputText>
 
-										<h:outputText value="Yetkinlik Seviyesi :" />
-										<h:selectOneMenu id="yetkinlikler"
-											value="#{egitimBean.egitim.yetkinlikler_seviye}">
-											<f:selectItem itemLabel="Seçin" itemValue=" " />
-											<f:selectItem itemLabel="Başlangıç" itemValue="Başlangıç" />
-											<f:selectItem itemLabel="Orta" itemValue="Orta" />
-											<f:selectItem itemLabel="İleri" itemValue="İleri" />
-										</h:selectOneMenu>
-
-										<h:outputText value="Kurs Alınan Alan :" />
-										<p:inputText
-											value="#{egitimBean.egitim.kurs_adi}"></p:inputText>
-
-										<h:outputText value="Kurs Alınan Kurum :" />
-										<p:inputText id="kurslar"
-											value="#{egitimBean.egitim.kurs_kurum}"></p:inputText>
-
-										<h:outputText value="Sınav Adı :" />
-										<p:inputText 
-											value="#{egitimBean.egitim.sınav_adi}"></p:inputText>
-
-										<h:outputText value="Sınav Notu :" />
-										<p:inputText id="sınavlar"
-											value="#{egitimBean.egitim.sınav_notu}"></p:inputText>
-
-										<h:outputText value="Sertifika Alınan Alan :" />
-										<p:inputText 
-											value="#{egitimBean.egitim.sertifika_alani}"></p:inputText>
-
-										<h:outputText value="Sertifika Adı :" />
-										<p:inputText 
-											value="#{egitimBean.egitim.sertifika_adi}"></p:inputText>
-
-										<h:outputText value="Sertifika Alınan Kurum :" />
-										<p:inputText id="sertifikalar"
-											value="#{egitimBean.egitim.sertifika_kurum}"></p:inputText>
+												<h:outputText value="Sertifika Alınan Kurum :" />
+												<p:inputText id="sertifikalar"
+													value="#{egitimBean.egitim.sertifika_kurum}"></p:inputText>
+											</h:panelGrid>
+										</p:fieldset>
 
 										<p:commandButton value="Kaydet" update="frmEgitim" ajax="true"
 											action="#{egitimBean.kaydet}"></p:commandButton>
 										<p:commandButton value="İptal" update="frmEgitim" ajax="true"
 											action="egitim.xhtml"></p:commandButton>
-
-
-
 									</p:panelGrid>
 								</h:form>
 

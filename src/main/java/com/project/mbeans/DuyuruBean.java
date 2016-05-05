@@ -71,7 +71,7 @@ public class DuyuruBean implements Serializable {
 		this.duyuru = new Duyuru();
 	}
 
-	public Duyuru getDeneyim() {
+	public Duyuru getDuyuru() {
 		if (duyuru == null) {
 			duyuru = new Duyuru();
 		}

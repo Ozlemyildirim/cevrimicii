@@ -30,7 +30,7 @@ public class EgitimBean implements Serializable {
 
 	@PostConstruct
 	public void init() {
-		System.out.println("deneyimBean construct");
+		System.out.println("egitimBean construct");
 		egitimList = egitimService.getAll();
 	}
 

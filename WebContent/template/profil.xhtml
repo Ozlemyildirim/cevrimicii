@@ -159,18 +159,18 @@
 
 										<h:outputText value="Soyadı :" />
 										<p:inputText id="soyadi" value="#{profilBean.profil.soyadi}"></p:inputText>
-										
-										
-										
+
+
+
 										<p:outputLabel for="cinsiyet" value="cinsiyet :" />
-										<h:selectOneMenu id="cinsiyet" value="#{profilBean.profil.cinsiyet}"
-											style="width:250px">
+										<h:selectOneMenu id="cinsiyet"
+											value="#{profilBean.profil.cinsiyet}" style="width:250px">
 											<f:selectItem itemLabel="Erkek" itemValue="Erkek" />
 											<f:selectItem itemLabel="Kadın" itemValue="Kadın" />
 										</h:selectOneMenu>
-										
-										
- 
+
+
+
 
 										<h:outputText value="E-MAİL ADRESİ: " />
 										<p:inputText value="#{profilBean.profil.eposta}"
@@ -183,22 +183,22 @@
 											pattern="dd-MM-yyyy" />
 
 										<h:outputText value="Adres :" />
-										<p:inputText id="adres" value="#{profilBean.profil.adres}"></p:inputText>   
-										
-                                       <p:outputLabel for="MedeniHal" value="MedeniHal"  />
-										<h:selectOneMenu id="MedeniHal" value="#{profilBean.profil.medenihal}"
-											style="width:250px">
+										<p:inputText id="adres" value="#{profilBean.profil.adres}"></p:inputText>
+
+										<p:outputLabel for="MedeniHal" value="MedeniHal" />
+										<h:selectOneMenu id="MedeniHal"
+											value="#{profilBean.profil.medenihal}" style="width:250px">
 											<f:selectItem itemLabel="Evli" itemValue="Evli" />
 											<f:selectItem itemLabel="Bekar" itemValue="Bekar" />
 										</h:selectOneMenu>
-										
-										<p:outputLabel for="Askerlik" value="Askerlik"  />
-										<h:selectOneMenu id="Askerlik" value="#{profilBean.profil.askerlik}"
-											style="width:250px">
+
+										<p:outputLabel for="Askerlik" value="Askerlik" />
+										<h:selectOneMenu id="Askerlik"
+											value="#{profilBean.profil.askerlik}" style="width:250px">
 											<f:selectItem itemLabel="Yaptı" itemValue="Yaptı" />
 											<f:selectItem itemLabel="Yapmadı" itemValue="Yapmadı" />
 										</h:selectOneMenu>
- 
+
 
 										<p:commandButton value="Kaydet" update="frmProfil" ajax="true"
 											action="#{profilBean.kaydet}"></p:commandButton>

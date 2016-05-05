@@ -134,7 +134,7 @@
 						<ul>
 							<h3>Profili tamamla</h3>
 							<li><a href="sirket.xhtml">Şirket Bilgileri</a></li>
-							<li><a href="ilan.xhtml">İlan oluştur</a></li>
+							<li><a href="duyuru.xhtml">İlan oluştur</a></li>
 
 
 						</ul>
@@ -148,7 +148,7 @@
 					<div class="main">
 						<div class="content">
 							<div class="form-style-3">
-								<h:form id="frmIlan">
+								<h:form id="frmDuyuru">
 									<p:panelGrid columns="2">
 
 										<f:facet name="header">İlan Ver</f:facet>
@@ -215,9 +215,9 @@
 										</h:selectOneMenu>
 
 
-										<p:commandButton value="Kaydet" update="frmIlan" ajax="true"
-											action="#{duyuruBean.duyuru.kaydet}"></p:commandButton>
-										<p:commandButton value="İptal" update="frmIlan" ajax="true"
+										<p:commandButton value="Kaydet" update="frmDuyuru" ajax="true"
+											action="#{duyuruBean.kaydet}"></p:commandButton>
+										<p:commandButton value="İptal" update="frmDuyuru" ajax="true"
 											action="duyuru.xhtml"></p:commandButton>
 
 
