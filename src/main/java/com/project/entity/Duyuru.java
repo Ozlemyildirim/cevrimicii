@@ -13,7 +13,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "DUYURU")
+@Table(name="DUYURU")
 public class Duyuru extends BaseEntity {
 	/**
 	 * 
@@ -23,7 +23,7 @@ public class Duyuru extends BaseEntity {
 	private Long id;
 	private String sehir;
 	private String pozisyon;
-	private String duyuru;
+	private String sirket;
 	private String sektor;
 	private Date duyurutarihi;
 	private String egitim;
@@ -61,12 +61,12 @@ public class Duyuru extends BaseEntity {
 	}
 
 	@Column(name = "SIRKET")
-	public String getDuyuru() {
-		return duyuru;
+	public String getSirket() {
+		return sirket;
 	}
 
-	public void setDuyuru(String duyuru) {
-		this.duyuru = duyuru;
+	public void setSirket(String sirket) {
+		this.sirket = sirket;
 	}
 
 	@Column(name = "SEKTOR")
@@ -80,11 +80,11 @@ public class Duyuru extends BaseEntity {
 
 	@Temporal(TemporalType.DATE)
 	@Column(name = "DUYURUTARIHI")
-	public Date getIlantarihi() {
+	public Date getDuyurutarihi() {
 		return duyurutarihi;
 	}
 
-	public void setIlantarihi(Date duyurutarihi) {
+	public void setDuyurutarihi(Date duyurutarihi) {
 		this.duyurutarihi = duyurutarihi;
 	}
 
