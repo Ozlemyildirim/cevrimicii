@@ -13,8 +13,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "ILAN")
-public class Ilan extends BaseEntity {
+@Table(name = "DUYURU")
+public class Duyuru extends BaseEntity {
 	/**
 	 * 
 	 */
@@ -23,16 +23,16 @@ public class Ilan extends BaseEntity {
 	private Long id;
 	private String sehir;
 	private String pozisyon;
-	private String sirket;
+	private String duyuru;
 	private String sektor;
-	private Date ilantarihi;
+	private Date duyurutarihi;
 	private String egitim;
 	private String deneyim;
 	private String askerlik;
 
 	@Id
-	@SequenceGenerator(name = "SEQ_ILAN_ID", sequenceName = "SEQ_ILAN_ID", allocationSize = 1, initialValue = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_ILAN_ID")
+	@SequenceGenerator(name = "SEQ_DUYURU_ID", sequenceName = "SEQ_DUYURU_ID", allocationSize = 1, initialValue = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_DUYURU_ID")
 	@Column(name = "ID")
 	public Long getId() {
 		return id;
@@ -61,12 +61,12 @@ public class Ilan extends BaseEntity {
 	}
 
 	@Column(name = "SIRKET")
-	public String getSirket() {
-		return sirket;
+	public String getDuyuru() {
+		return duyuru;
 	}
 
-	public void setSirket(String sirket) {
-		this.sirket = sirket;
+	public void setDuyuru(String duyuru) {
+		this.duyuru = duyuru;
 	}
 
 	@Column(name = "SEKTOR")
@@ -79,13 +79,13 @@ public class Ilan extends BaseEntity {
 	}
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "ILANTARIHI")
+	@Column(name = "DUYURUTARIHI")
 	public Date getIlantarihi() {
-		return ilantarihi;
+		return duyurutarihi;
 	}
 
-	public void setIlantarihi(Date ilantarihi) {
-		this.ilantarihi = ilantarihi;
+	public void setIlantarihi(Date duyurutarihi) {
+		this.duyurutarihi = duyurutarihi;
 	}
 
 	@Column(name = "EGITIM")

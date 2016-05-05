@@ -8,52 +8,52 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.project.entity.Ilan;
+import com.project.entity.Duyuru;
 
 @Service
-public class IlanService {
+public class DuyuruService {
 
 	@Autowired
 	private BaseDao baseDao;
 
-	public Ilan save(Ilan entity) {
+	public Duyuru save(Duyuru entity) {
 		baseDao.save(entity);
 		return entity;
 	}
 
-	public Ilan update(Ilan entity) {
+	public Duyuru update(Duyuru entity) {
 		baseDao.update(entity);
 		return entity;
 	}
 
-	public boolean delete(Ilan entity) {
+	public boolean delete(Duyuru entity) {
 		baseDao.delete(entity);
 		return true;
 	}
 
 	@Transactional
 	@SuppressWarnings("unchecked")
-	public List<Ilan> getAll() {
-		Criteria criteria = baseDao.getSession().createCriteria(Ilan.class);
-		List<Ilan> liste = criteria.list();
+	public List<Duyuru> getAll() {
+		Criteria criteria = baseDao.getSession().createCriteria(Duyuru.class);
+		List<Duyuru> liste = criteria.list();
 		return liste;
 	}
 
 	@Transactional
-	public Ilan getById(Long id) {
-		Criteria criteria = baseDao.getSession().createCriteria(Ilan.class);
+	public Duyuru getById(Long id) {
+		Criteria criteria = baseDao.getSession().createCriteria(Duyuru.class);
 		criteria.add(Restrictions.eq("id", id));
-		Ilan ilan = (Ilan) criteria.uniqueResult();
+		Duyuru ilan = (Duyuru) criteria.uniqueResult();
 		return ilan;
 	}
 
 	@Transactional
-	public Ilan getUserByLessonName(String lessonname) {
+	public Duyuru getUserByLessonName(String lessonname) {
 
-		Criteria criteria = baseDao.getSession().createCriteria(Ilan.class);
+		Criteria criteria = baseDao.getSession().createCriteria(Duyuru.class);
 		criteria.add(Restrictions.and(Restrictions
 				.eq("lessonnname", lessonname)));
-		Ilan ilan = (Ilan) criteria.uniqueResult();
+		Duyuru ilan = (Duyuru) criteria.uniqueResult();
 
 		return ilan;
 	}
