@@ -47,6 +47,14 @@ public class SirketService {
 		Sirket Sirket = (Sirket) criteria.uniqueResult();
 		return Sirket;
 	}
+	@Transactional
+	public Sirket getByName(String name) {
+		Criteria criteria = baseDao.getSession().createCriteria(Sirket.class);
+		criteria.add(Restrictions.eq("adi", name));
+		Sirket Sirket = (Sirket) criteria.uniqueResult();
+		return Sirket;
+	}
+
 
 	@Transactional
 	public Sirket getUserByLessonName(String lessonname) {

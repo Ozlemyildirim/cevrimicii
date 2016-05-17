@@ -4,16 +4,20 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name="DUYURU")
+@Table(name = "DUYURU")
 public class Duyuru extends BaseEntity {
 	/**
 	 * 
@@ -23,7 +27,7 @@ public class Duyuru extends BaseEntity {
 	private Long id;
 	private String sehir;
 	private String pozisyon;
-	private String sirket;
+	private Sirket sirket;
 	private String sektor;
 	private Date duyurutarihi;
 	private String egitim;
@@ -60,12 +64,13 @@ public class Duyuru extends BaseEntity {
 		this.pozisyon = pozisyon;
 	}
 
-	@Column(name = "SIRKET")
-	public String getSirket() {
+	@ManyToOne(optional = true, fetch = FetchType.EAGER)
+	@JoinColumn(foreignKey = @ForeignKey(name = "FK_DUYURU_SIRKET_ID"), name = "SIRKET_ID")
+	public Sirket getSirket() {
 		return sirket;
 	}
 
-	public void setSirket(String sirket) {
+	public void setSirket(Sirket sirket) {
 		this.sirket = sirket;
 	}
 
