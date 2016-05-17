@@ -182,12 +182,7 @@
 											<f:selectItem itemLabel="Diğer" itemValue="Diğer" />
 										</h:selectOneMenu>
 
-										<p:outputLabel for="ilantarihi" value="İlan Tarihi :" />
-										<p:calendar id="ilantarihi"
-											value="#{duyuruBean.duyuru.duyurutarihi}" pattern="dd/MM/yyyy"
-											mask="true" />
 
-									
 
                                         	<p:outputLabel for="egitim" value="Eğitim :" />
 										<h:selectOneMenu id="egitim"
@@ -204,6 +199,12 @@
 
 										<h:outputText value="Deneyim :" />
 										<p:inputText id="deneyim" value="#{duyuruBean.duyuru.deneyim}"></p:inputText>
+										
+										
+										<h:outputText value="Tarih :" />
+										<p:inputText id="tarih" value="#{duyuruBean.duyuru.duyurutarihi}"></p:inputText>
+										
+										
 
 										<p:outputLabel for="askerlik" value="Askerlik :" />
 										<h:selectOneMenu id="askerlik"

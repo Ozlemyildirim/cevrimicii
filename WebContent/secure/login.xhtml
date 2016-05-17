@@ -36,7 +36,7 @@
 		</div>
 		<div class="form">
 			<h2>Login to your account</h2>
-			<h:form>
+			<h:form id="frmLogin">
 				<h:outputText value="Username :" />
 				<h:inputText type="text" placeholder="Username"
 					value="#{loginBean.username}" />
@@ -44,12 +44,12 @@
 				<h:inputText type="password" placeholder="Password"
 					value="#{loginBean.password}" />
 				<h:commandButton action="#{loginBean.logIn}" value="Login"
-					ajax="false"></h:commandButton>
+					ajax="false" update="frmLogin"></h:commandButton>
 			</h:form>
 		</div>
 		<div class="form">
 			<h2>Create an account</h2>
-			<h:form>
+			<h:form id="frmKaydet">
 				<h:outputText value="Username :" />
 				<h:inputText type="text" placeholder="Username"
 					value="#{kullaniciBean.kullanici.username}" />
@@ -57,7 +57,7 @@
 				<h:inputText id="Password" type="password" placeholder="Password"
 					value="#{kullaniciBean.kullanici.password}" />
 
-				<h:commandButton action="#{kullaniciBean.kaydet}" value="KAYDET"
+				<h:commandButton action="#{kullaniciBean.kaydet}" value="KAYDET" update="frmKaydet"
 					ajax="false"></h:commandButton>
 			</h:form>
 		</div>

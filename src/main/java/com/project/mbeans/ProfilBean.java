@@ -27,27 +27,27 @@ public class ProfilBean implements Serializable {
 	 */
 
 	@Autowired
-	private transient ProfilService profilService;
+	private transient ProfilService ProfilService;
 
 	private Profil profil;
 	private String mesaj;
-	List<Profil> profilList;
+	List<Profil> ProfilList;
 
 	@PostConstruct
 	public void init() {
-		profilList = profilService.getAll();
+		ProfilList = ProfilService.getAll();
 	}
 
-	public void kaydet() {
+	public void olustur() {
 		System.out.println(profil.toString());
 
 		if (this.profil != null && this.profil.getId() != null) {
-			profilService.update(profil);
+			ProfilService.update(profil);
 		} else {
-			profilService.save(profil);
+			ProfilService.save(profil);
 		}
 
-		profilList = profilService.getAll();
+		ProfilList = ProfilService.getAll();
 
 		FacesContext.getCurrentInstance().addMessage("Kayýt",
 				new FacesMessage("Profil Kaydedildi"));
@@ -55,15 +55,15 @@ public class ProfilBean implements Serializable {
 	}
 
 	public void sil(Long id) {
-		Profil entity = profilService.getById(id);
-		profilService.delete(entity);
-		profilList = profilService.getAll();
+		Profil entity = ProfilService.getById(id);
+		ProfilService.delete(entity);
+		ProfilList = ProfilService.getAll();
 		FacesContext.getCurrentInstance().addMessage("Kayýt",
 				new FacesMessage("Profil Silindi"));
 	}
 
 	public void duzenle(Long id) {
-		Profil entity = profilService.getById(id);
+		Profil entity = ProfilService.getById(id);
 		this.profil = entity;
 	}
 
@@ -78,8 +78,8 @@ public class ProfilBean implements Serializable {
 		return profil;
 	}
 
-	public void setProfil(Profil profil) {
-		this.profil = profil;
+	public void setProfil(Profil Profil) {
+		this.profil = Profil;
 	}
 
 	public String getMesaj() {
@@ -87,7 +87,7 @@ public class ProfilBean implements Serializable {
 	}
 
 	public List<Profil> getProfilList() {
-		return profilList;
+		return ProfilList;
 	}
 
 }

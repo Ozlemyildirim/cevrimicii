@@ -18,7 +18,7 @@ public class Profil extends BaseEntity{
     /**
 	 * 
 	 */
-	private static final long serialVersionUID = -71084122760408808L;
+	private static final long serialVersionUID = 1L;
 	private Long id;
     private String adi;
     private String soyadi;
