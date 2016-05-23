@@ -154,7 +154,7 @@
 						<f:facet name="header"> Profilimi Görüntüle	</f:facet>
 
 						<h:outputLabel value="Adı :" />
-						<h:outputText value="#{profilBean.profil.adi}"/>
+						<h:outputText value="#{profilBean.profil.adi}" />
 
 						<h:outputLabel value="Soyadı :" />
 						<h:outputText id="soyadi" value="#{profilBean.profil.soyadi}"></h:outputText>
@@ -203,42 +203,42 @@
 						header="Kayıt güncelle" modal="true">
 						<p:panelGrid columns="2">
 
-							<h:outputLabel value="Adı :" />
-							<h:inputText id="adi" value="#{profilBean.profil.adi}"></h:inputText>
+							<p:outputLabel value="Adı :" />
+							<p:inputText value="#{sirketBean.sirket.adi}"></p:inputText>
 
-							<h:outputLabel value="Soyadı :" />
-							<h:inputText id="soyadi" value="#{profilBean.profil.soyadi}"></h:inputText>
+							<p:outputLabel value="Sektör :" />
+							<p:inputText value="#{sirketBean.sirket.sektoru}">
 
-							<h:outputLabel value="Adres :" />
-							<h:inputText id="Adres" value="#{profilBean.profil.adres}"></h:inputText>
+							</p:inputText>
 
+							<p:outputLabel value="Çalışan Sayısı :" />
+							<p:inputText value="#{sirketBean.sirket.calisansayisi}"></p:inputText>
 
-
-							<h:outputLabel value="Cinsiyet :" />
-							<h:inputText id="Cinsiyet" value="#{profilBean.profil.cinsiyet}"></h:inputText>
-
-							<h:outputLabel value="Doğum Tarihi :" />
-							<h:inputText id="Tarihi" value="#{profilBean.profil.dtarihi}"></h:inputText>
-
-							<h:outputLabel value="E-mail: " />
-							<h:inputText value="#{profilBean.profil.eposta}" id="eposta"
-								required="true" label="Email" />
-
-							<h:outputLabel value="Telefon " />
-							<h:inputText id="tel" value="#{profilBean.profil.telefon}"
-								mask="(999) 999-9999" required="true" style="width: 200px;" />
+							<p:outputLabel value="Adres :" />
+							<p:inputText value="#{sirketBean.sirket.adresi}"></p:inputText>
 
 
-							<h:outputLabel value="Medeni Hal :" />
-							<h:inputText id="Medeni" value="#{profilBean.profil.medenihal}"></h:inputText>
+							<p:outputLabel value="Ülke :" />
+							<p:inputText value="#{sirketBean.sirket.ulke}">
 
+							</p:inputText>
+
+							<p:outputLabel value="Şehir :" />
+							<p:inputText  value="#{sirketBean.sirket.sehir}"
+								 >
+								 
+							</p:inputText>
+
+
+							<p:outputLabel value="Web Adresi :" />
+							<p:inputText  
+								value="#{sirketBean.sirket.webadresi}"></p:inputText>
 
 
 
 							<f:facet name="footer">
 								<p:commandButton value="Kaydet" process="@form"
-									action="#{profilBean.olustur}"
-									update="frmUpdate:tblUpdate"
+									action="#{profilBean.olustur}" update="frmUpdate:tblUpdate"
 									oncomplete="PF('dlgUpdate').hide();"></p:commandButton>
 							</f:facet>
 						</p:panelGrid>

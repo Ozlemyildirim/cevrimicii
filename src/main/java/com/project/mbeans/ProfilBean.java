@@ -4,9 +4,6 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -30,7 +27,6 @@ public class ProfilBean implements Serializable {
 	private transient ProfilService ProfilService;
 
 	private Profil profil;
-	private String mesaj;
 	List<Profil> ProfilList;
 
 	@PostConstruct
@@ -49,8 +45,6 @@ public class ProfilBean implements Serializable {
 
 		ProfilList = ProfilService.getAll();
 
-		FacesContext.getCurrentInstance().addMessage("Kayýt",
-				new FacesMessage("Profil Kaydedildi"));
 		profil = new Profil();
 	}
 
@@ -58,8 +52,7 @@ public class ProfilBean implements Serializable {
 		Profil entity = ProfilService.getById(id);
 		ProfilService.delete(entity);
 		ProfilList = ProfilService.getAll();
-		FacesContext.getCurrentInstance().addMessage("Kayýt",
-				new FacesMessage("Profil Silindi"));
+	
 	}
 
 	public void duzenle(Long id) {
@@ -82,10 +75,7 @@ public class ProfilBean implements Serializable {
 		this.profil = Profil;
 	}
 
-	public String getMesaj() {
-		return mesaj;
-	}
-
+	
 	public List<Profil> getProfilList() {
 		return ProfilList;
 	}

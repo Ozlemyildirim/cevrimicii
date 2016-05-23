@@ -11,10 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import com.project.entity.Duyuru;
-import com.project.entity.Sirket;
+ import com.project.entity.Duyuru;
 import com.project.service.DuyuruService;
-import com.project.service.SirketService;
 
 @Controller("duyuruBean")
 @Scope("session")
@@ -31,11 +29,12 @@ public class DuyuruBean implements Serializable {
 	@Autowired
 	private transient DuyuruService duyuruService;
 
-	@Autowired
-	private transient SirketService sirketService;
+	
+
 	private Duyuru duyuru;
 	private String mesaj;
 	List<Duyuru> duyuruList;
+	List<Duyuru> filteredList;
 
 	@PostConstruct
 	public void init() {
@@ -53,8 +52,10 @@ public class DuyuruBean implements Serializable {
 
 		duyuruList = duyuruService.getAll();
 
-		FacesContext.getCurrentInstance().addMessage("Kayýt",
+		FacesContext.getCurrentInstance().addMessage("Kayyt",
 				new FacesMessage("duyuru Kaydedildi"));
+		filteredList = duyuruService.getAll();
+
 		duyuru = new Duyuru();
 	}
 
@@ -62,12 +63,8 @@ public class DuyuruBean implements Serializable {
 		Duyuru entity = duyuruService.getById(id);
 		duyuruService.delete(entity);
 		duyuruList = duyuruService.getAll();
-		FacesContext.getCurrentInstance().addMessage("Kayýt",
+		FacesContext.getCurrentInstance().addMessage("Kayyt",
 				new FacesMessage("duyuru Silindi"));
-	}
-
-	public List<Sirket> sirketAcomp(String key) {
-		return (List<Sirket>) sirketService.getByName(key);
 	}
 
 	public void duzenle(Long id) {
@@ -97,5 +94,13 @@ public class DuyuruBean implements Serializable {
 	public List<Duyuru> getDuyuruList() {
 		return duyuruList;
 	}
+	public List<Duyuru> getFilteredList() {
+		return filteredList;
+	}
 
-}
+	public void setFilteredList(List<Duyuru> filteredList) {
+		this.filteredList = filteredList;
+	}
+
+	
+ }

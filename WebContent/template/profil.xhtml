@@ -160,17 +160,16 @@
 										<h:outputText value="Soyadı :" />
 										<p:inputText id="soyadi" value="#{profilBean.profil.soyadi}"></p:inputText>
 
+                                       <h:outputText value="Adres :" />
+										<p:inputText id="Adres" value="#{profilBean.profil.adres}"></p:inputText>
 
+										
+                                 
+                                 <h:outputText value="Cinsiyet :" />
+										<p:inputText id="Cinsiyet" value="#{profilBean.profil.cinsiyet}"></p:inputText>
 
-										<p:outputLabel for="cinsiyet" value="cinsiyet :" />
-										<h:selectOneMenu id="cinsiyet"
-											value="#{profilBean.profil.cinsiyet}" style="width:250px">
-											<f:selectItem itemLabel="Erkek" itemValue="Erkek" />
-											<f:selectItem itemLabel="Kadın" itemValue="Kadın" />
-										</h:selectOneMenu>
-
-
-
+                                   <h:outputText value="Doğum Tarihi :" />
+										<p:inputText id="Tarihi" value="#{profilBean.profil.dtarihi}"></p:inputText>
 
 										<h:outputText value="E-mail: " />
 										<p:inputText value="#{profilBean.profil.eposta}" id="eposta"
@@ -180,33 +179,18 @@
 										<p:inputText id="tel" value="#{profilBean.profil.telefon}"
 							mask="(999) 999-9999" required="true" style="width: 200px;" />
 										
+
+										<h:outputText value="Medeni Hal :" />
+										<p:inputText id="Medeni" value="#{profilBean.profil.medenihal}"></p:inputText>
+
 										
-										<p:outputLabel for="dtarihi" value="DOĞUM TARİHİ:" />
-										<p:calendar id="dtarihi" value="#{profilBean.profil.dtarihi}"
-											pattern="dd-MM-yyyy" />
-
-										<h:outputText value="Adres :" />
-										<p:inputText id="adres" value="#{profilBean.profil.adres}"></p:inputText>
-
-										<p:outputLabel for="MedeniHal" value="MedeniHal" />
-										<h:selectOneMenu id="MedeniHal"
-											value="#{profilBean.profil.medenihal}" style="width:250px">
-											<f:selectItem itemLabel="Evli" itemValue="Evli" />
-											<f:selectItem itemLabel="Bekar" itemValue="Bekar" />
-										</h:selectOneMenu>
-
-										<p:outputLabel for="Askerlik" value="Askerlik" />
-										<h:selectOneMenu id="Askerlik"
-											value="#{profilBean.profil.askerlik}" style="width:250px">
-											<f:selectItem itemLabel="Yaptı" itemValue="Yaptı" />
-											<f:selectItem itemLabel="Yapmadı" itemValue="Yapmadı" />
-										</h:selectOneMenu>
+										
 
 
-										<p:commandButton value="Kaydet" update="frmProfil" 
-											action="#{profilBean.kaydet}"></p:commandButton>
-										<p:commandButton value="İptal" update="frmProfil" 
-											action="profil.xhtml"></p:commandButton>
+										<h:commandButton value="Kaydet" update="frmProfil" 
+											action="#{profilBean.olustur}"></h:commandButton>
+										<h:commandButton value="İptal" update="frmProfil" 
+											action="profil.xhtml"></h:commandButton>
 									</p:panelGrid>
 								</h:form>
 							</div>

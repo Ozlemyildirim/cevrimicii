@@ -56,8 +56,8 @@
 					<ul>
 
 
-						<li><a href="#">Profil Güncelle</a></li>
-						<li><a href="#">Şirket Profili Güncelle</a></li>
+						<li><a href="profilupdate.xhtml">Profil Güncelle</a></li>
+						<li><a href="sirketupdate.xhtml">Şirket Profili Güncelle</a></li>
 						<li><a href="#">İlan Güncelle</a></li>
 						<li><a href="#">Hesabımı sil</a></li>
 
@@ -127,7 +127,7 @@
 				<div class="menu">
 					<ul>
 						<li class="active"><a href="template.xhtml">Anasayfa</a></li>
-						<li><a href="about.html">Hakkında</a></li>
+						<li><a href="about.xhtml">Hakkında</a></li>
 						<li><a href="profil.xhtml">Üye profili oluştur</a></li>
 						<li><a href="sirket.xhtml">Şirket profili oluştur</a></li>
 						<li><a href="iletisim.xhtml">İletişim</a></li>
@@ -221,9 +221,10 @@
 
 
 					<p:column>
-						<p:commandButton value="Başvur"
-							actionListener="#{duyuruBean.sil(item.id)}"  update=":duyuruForm:tblDuyuru"
-							style="width: 80px; height: 30px;font-size:70%;"></p:commandButton>
+					
+						<h:commandButton value="Başvur"
+							action="#{sirket.xhtml}"  update=":duyuruForm:tblDuyuru"
+							style="width: 80px; height: 30px;font-size:70%;"></h:commandButton>
 					</p:column>
 
 
