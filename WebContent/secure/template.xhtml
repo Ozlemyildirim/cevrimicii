@@ -56,9 +56,9 @@
 					<ul>
 
 
-						<li><a href="#">Profil Güncelle</a></li>
-						<li><a href="#">Şirket Profili Güncelle</a></li>
-						<li><a href="#">İlan Güncelle</a></li>
+						<li><a href="profilupdate.xhtml">Profil Güncelle</a></li>
+						<li><a href="sirketupdate.xhtml">Şirket Profili Güncelle</a></li>
+						<li><a href="ilanupdate.xhtml">İlan Sil</a></li>
 						<li><a href="#">Hesabımı sil</a></li>
 
 						<li><a href="login.xhtml">Çıkış Yap</a></li>
@@ -150,21 +150,90 @@
 
 
 		<div class="header_bottom">
- <br></br>
-<br></br>
-   "İşsizlik problemine yönelik sıkıntıların daha hızlı giderilmesine
+			<h:form id="duyuruForm">
 
-imkân sağlamayı amaçlayan, iş bulmayı kolaylaştıran bir uygulama yapılması.
+				<p:dataTable var="item" value="#{duyuruBean.duyuruList}"
+					layout="grid" widgetVar="ListTable" rows="12" paginator="true"
+					id="tblDuyuru" filteredValue="#{duyuruBean.filteredList}"
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					rowsPerPageTemplate="8,12,16">
 
-Çevrimiçi İş Portalı projesi işsizlik kaynaklı sorunlara daha kolay, sürdürülebilir
+					<f:facet name="header"> İş İlanları
+				
+            <p:outputPanel>
+							<h:outputText value="Tüm tabloda arayın: " />
+							<p:inputText id="globalFilter" onkeyup="PF('ListTable').filter()"
+								style="width:150px" placeholder=".." />
+						</p:outputPanel>
 
-çözüm bulunması ve çözüm yöntemlerinin basite indirgenmesini sağlamak
+					</f:facet>
+					<p:column headerText="Arama yapın:">
+						<p:graphicImage library="images" name="abc.jpg" />
 
-amacıyla bilgisayar ağlarını araç olarak kullanır, iletişim ve erişim problemini
+					</p:column>
 
-ortadan kaldırır."		
+					<p:column>
+						<h:outputText value="#{item.id}" />
+					</p:column>
+
+					<p:column headerText="Şehir" filterBy="#{item.sehir}">
+						<h:outputText value="#{item.sehir}" />
+					</p:column>
 
 
+					<p:column headerText="Şirket" filterBy="#{item.sirket}">
+						<h:outputText value="#{item.sirket}" />
+					</p:column>
+
+					<p:column headerText="Sektör" filterBy="#{item.sektor}">
+						<h:outputText value="#{item.sektor}" />
+					</p:column>
+
+
+					<p:column headerText="Pozisyon" filterBy="#{item.pozisyon}">
+						<h:outputText value="#{item.pozisyon}" />
+					</p:column>
+
+					<p:column  headerText="E-mail/İletişim" >
+						<h:outputText value="#{item.email}" />
+
+					</p:column>
+
+
+					<p:column>
+						<h:outputText value="#{item.duyurutarihi}" />
+					</p:column>
+
+
+					<p:column headerText="Eğitim durumu">
+						<h:outputText value="#{item.egitim}" />
+
+					</p:column>
+
+
+
+					<p:column headerText="Deneyim durumu">
+						<h:outputText value="#{item.deneyim}" />
+					</p:column>
+
+
+
+					<p:column headerText="Askerlik durumu">
+						<h:outputText value="#{item.askerlik}" />
+					</p:column>
+
+
+					<p:column>
+
+						<h:commandButton value="Başvur" action="mail.xhtml"
+							update=":duyuruForm:tblDuyuru"
+							style="width: 80px; height: 30px;font-size:70%;"></h:commandButton>
+					</p:column>
+
+
+				</p:dataTable>
+
+			</h:form>
 		</div>
 
 

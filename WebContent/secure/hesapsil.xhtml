@@ -54,11 +54,12 @@
 			<div class="headertop_desc">
 				<div class="account_desc">
 					<ul>
-
-
-						<li><a href="#">Profil Güncelle</a></li>
-						<li><a href="#">Şirket Profili Güncelle</a></li>
-						<li><a href="#">İlan Güncelle</a></li>
+						
+						
+					
+						<li><a href="profilupdate.xhtml">Profil Güncelle</a></li>
+						<li><a href="sirketupdate.xhtml">Şirket Profili Güncelle</a></li>
+						<li><a href="ilanupdate.xhtml">İlan Sil</a></li>
 						<li><a href="#">Hesabımı sil</a></li>
 
 						<li><a href="login.xhtml">Çıkış Yap</a></li>
@@ -68,17 +69,23 @@
 			</div>
 			<div class="header_top">
 				<div class="logo">
-
-
-
-
-
-					<a href="template.xhtml"> <p:graphicImage library="images"
-							style="width: 280px; height: 120px;" name="is-ilanlari.jpg" /></a>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+					<a href="template.xhtml"> <p:graphicImage library="images" style="width: 280px; height: 120px;"
+					name="is-ilanlari.jpg"/></a>
 				</div>
 				<div class="cart">
-
-
+				
+				
 					<p>Yaptığınız başvurular:</p>
 					<div id="dd" class="wrapper-dropdown-2">
 						<ul class="dropdown">
@@ -121,7 +128,9 @@
 				<div class="menu">
 					<ul>
 						<li class="active"><a href="template.xhtml">Anasayfa</a></li>
-						<li><a href="about.xhtml">Hakkında</a></li>
+						<li><a href="about.html">Hakkında</a></li>
+						<li><a href="profil.xhtml">Üye profili oluştur</a></li>
+						<li><a href="sirket.xhtml">Şirket profili oluştur</a></li>
 						<li><a href="iletisim.xhtml">İletişim</a></li>
 						<div class="clear"></div>
 					</ul>
@@ -129,131 +138,64 @@
 				<div class="search_box">
 					<form>
 						<p:inputText id="globalFilter" onkeyup="PF('ListTable').filter()"
-							placeholder=".." />
+							  placeholder=".." />
 					</form>
 				</div>
 				<div class="clear"></div>
 			</div>
-		</div>
-
-
-
-
-
+			</div>
+			
+	
+			
+			
+			
 
 		<div class="header_bottom">
-			<div class="main">
-				<h:form id="frmUpdate">
-					<p:growl id="message" autoUpdate="true" showDetail="true"
-						life="5000" showSummary="true"></p:growl>
+		<div class="main">
+						<div class="content">
+							<div class="form-style-3">
+								<h:form id="frmHesap">
+		
+        <h:panelGrid id="userPanel" columns="2"  >
+               <p:row>   Lütfen hesabınızı silmek için doldurunuz:</p:row>
+               
+               <p:spacer></p:spacer>
+						<h:outputText value="Kullanıcı adı:" />
 
-					<h:panelGrid id="tblUpdate" var="item"
-						value="#{homeBBean.arizaList}">
-
-
-						<f:facet name="header"> Profilimi Görüntüle	</f:facet>
-
-						<h:outputLabel value="Adı :" />
-						<h:outputText value="#{profilBean.profil.adi}" />
-
-						<h:outputLabel value="Soyadı :" />
-						<h:outputText id="soyadi" value="#{profilBean.profil.soyadi}"></h:outputText>
-
-						<h:outputLabel value="Adres :" />
-						<h:outputText id="Adres" value="#{profilBean.profil.adres}"></h:outputText>
+						<p:inputText id="username" value="#{kullaniciBean.kullanici.username}"
+							style="width: 200px;" ></p:inputText>
 
 
+						
+					
+						<h:outputText value="Şifre:" />
 
-						<h:outputLabel value="Cinsiyet :" />
-						<h:outputText id="Cinsiyet" value="#{profilBean.profil.cinsiyet}"></h:outputText>
+						<p:password id="password" value="#{kullaniciBean.kullanici.password}" 
+						
+							feedback="false" style="width: 200px;" update=":userForm:userPanel"></p:password>
 
-						<h:outputLabel value="Doğum Tarihi :" />
-						<h:outputText id="Tarihi" value="#{profilBean.profil.dtarihi}"></h:outputText>
+						<p:spacer></p:spacer>
 
-						<h:outputLabel value="E-mail: " />
-						<h:outputText value="#{profilBean.profil.eposta}" id="eposta"
-							required="true" label="Email" />
+						<p:message for="password"></p:message>
 
-						<h:outputLabel value="Telefon " />
-						<h:outputText id="tel" value="#{profilBean.profil.telefon}"
-							mask="(999) 999-9999" required="true" style="width: 200px;" />
+						<p:spacer></p:spacer>
+						
+						<p:commandButton actionListener="#{kullaniciBean.sil}" value="Sil" 
+							update="userPanel"  style="width: 130px;"  ></p:commandButton>
+					<p:outputLabel></p:outputLabel>
+				
 
-
-						<h:outputLabel value="Medeni Hal :" />
-						<h:outputText id="Medeni" value="#{profilBean.profil.medenihal}"></h:outputText>
-
-
-
-
-
-						<p:column headerText="Güncelle">
-							<p:commandButton value="Güncelle"
-								actionListener="#{profilBean.duzenle(item.id)}"
-								icon="ui-icon-pencil" update=":frmUpdate:dlgUpdate"
-								oncomplete="PF('dlgUpdate').show();"></p:commandButton>
-						</p:column>
+				
+						</h:panelGrid>	
+						</h:form>
+						</div>
+						</div>
+						</div>						
+</div>
 
 
-
-
-
-					</h:panelGrid>
-
-					<p:dialog id="dlgUpdate" widgetVar="dlgUpdate" closable="true"
-						header="Kayıt güncelle" modal="true">
-						<p:panelGrid columns="2">
-
-							<p:outputLabel value="Adı :" />
-							<p:inputText value="#{sirketBean.sirket.adi}"></p:inputText>
-
-							<p:outputLabel value="Sektör :" />
-							<p:inputText value="#{sirketBean.sirket.sektoru}">
-
-							</p:inputText>
-
-							<p:outputLabel value="Çalışan Sayısı :" />
-							<p:inputText value="#{sirketBean.sirket.calisansayisi}"></p:inputText>
-
-							<p:outputLabel value="Adres :" />
-							<p:inputText value="#{sirketBean.sirket.adresi}"></p:inputText>
-
-
-							<p:outputLabel value="Ülke :" />
-							<p:inputText value="#{sirketBean.sirket.ulke}">
-
-							</p:inputText>
-
-							<p:outputLabel value="Şehir :" />
-							<p:inputText  value="#{sirketBean.sirket.sehir}"
-								 >
-								 
-							</p:inputText>
-
-
-							<p:outputLabel value="Web Adresi :" />
-							<p:inputText  
-								value="#{sirketBean.sirket.webadresi}"></p:inputText>
-
-
-
-							<f:facet name="footer">
-								<p:commandButton value="Kaydet" process="@form"
-									action="#{profilBean.olustur}" update="frmUpdate:tblUpdate"
-									oncomplete="PF('dlgUpdate').hide();"></p:commandButton>
-							</f:facet>
-						</p:panelGrid>
-					</p:dialog>
-
-
-				</h:form>
-
-			</div>
-
-		</div>
-
-
-
-	</div>
+			
+</div>
 
 
 	<script type="text/javascript">

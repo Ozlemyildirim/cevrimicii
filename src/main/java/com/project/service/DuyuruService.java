@@ -28,6 +28,7 @@ public class DuyuruService {
 
 	public boolean delete(Duyuru entity) {
 		baseDao.delete(entity);
+		
 		return true;
 	}
 

@@ -1,0 +1,247 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<f:facet name="first">
+
+		<title>İş Portalı</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+		<h:outputStylesheet name="css/easy-responsive-tabs.css"></h:outputStylesheet>
+		<h:outputStylesheet name="css/global.css"></h:outputStylesheet>
+		<h:outputStylesheet name="css/slider.css"></h:outputStylesheet>
+		<h:outputStylesheet name="css/style.css"></h:outputStylesheet>
+
+		<h:outputScript library="js" name="slides.min.jquery.js" />
+		<h:outputScript library="js" name="easing.js" target="body" />
+		<h:outputScript library="js" name="easyResponsiveTabs.js"
+			target="body" />
+		<h:outputScript library="js" name="jquery.accordion.js" target="body" />
+		<h:outputScript library="js" name="jquery-1.7.2.min.js" target="body" />
+		<h:outputScript library="js" name="move-top.js" target="body" />
+		<h:outputScript library="js" name="startstop-slider.js" target="body" />
+
+
+
+	</f:facet>
+</h:head>
+<h:body>
+	<script>
+		(function(i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r;
+			i[r] = i[r] || function() {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date();
+			a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+			a.async = 1;
+			a.src = g;
+			m.parentNode.insertBefore(a, m)
+		})(window, document, 'script',
+				'../../../../www.google-analytics.com/analytics.js', 'ga');
+		ga('create', 'UA-30027142-1', 'w3layouts.com');
+		ga('send', 'pageview');
+	</script>
+
+	<h:outputScript library="js" name="fancybar6a2f.js" target="body" />
+	<div class="wrap">
+		<div class="header">
+			<div class="headertop_desc">
+
+				<div class="account_desc">
+					<ul>
+						
+						<li><a href="profilupdate.xhtml">Profil Güncelle</a></li>
+						<li><a href="sirketupdate.xhtml">Şirket Profili Güncelle</a></li>
+						<li><a href="ilanupdate.xhtml">İlan Sil</a></li>
+						<li><a href="#">Hesabımı sil</a></li>
+
+						<li><a href="login.xhtml">Çıkış Yap</a></li>
+					</ul>
+				</div>
+
+			</div>
+
+
+			<div class="clear"></div>
+		</div>
+		<div class="header_top">
+			<div class="logo">
+				<a href="index.html"><img src="images/logo.png" alt="" /></a>
+			</div>
+			<div class="cart">
+				<p>Yaptığınız başvurular:</p>
+				<div id="dd" class="wrapper-dropdown-2">
+					<ul class="dropdown">
+						<li>Hiç başvurunuz yok !</li>
+					</ul>
+				</div>
+			</div>
+			<script type="text/javascript">
+				function DropDown(el) {
+					this.dd = el;
+					this.initEvents();
+				}
+				DropDown.prototype = {
+					initEvents : function() {
+						var obj = this;
+
+						obj.dd.on('click', function(event) {
+							$(this).toggleClass('active');
+							event.stopPropagation();
+						});
+					}
+				}
+
+				$(function() {
+
+					var dd = new DropDown($('#dd'));
+
+					$(document).click(function() {
+						// all dropdowns
+						$('.wrapper-dropdown-2').removeClass('active');
+					});
+
+				});
+			</script>
+			<div class="clear"></div>
+		</div>
+
+
+		<div class="header_bottom">
+			<div class="menu">
+				<ul>
+					<li class="active"><a href="template.xhtml">Anasayfa</a></li>
+					<li><a href="about.xhtml">Hakkında</a></li>
+					<li><a href="profil.xhtml">Üye profili oluştur</a></li>
+					<li><a href="sirket.xhtml">Şirket profili oluştur</a></li>
+					<li><a href="iletisim.xhtml">İletişim</a></li>
+					<div class="clear"></div>
+				</ul>
+			</div>
+			<div class="search_box">
+				<form>
+					<input type="text" value="Search" onfocus="this.value = '';"
+						onblur="if (this.value == '') {this.value = 'Search';}" /><input
+						type="submit" value=""> </input>
+				</form>
+			</div>
+			<div class="clear"></div>
+		</div>
+
+	
+
+	<div class="header_bottom">
+		<div class="main">
+			<h:form id="frmDuyuru">
+
+				<p:growl id="message" autoUpdate="true" showDetail="true"
+					life="5000" showSummary="true"></p:growl>
+
+				<p:dataTable id="tblDuyuru" var="item" layout="grid"   filteredValue="#{duyuruBean.filteredList}"
+					value="#{duyuruBean.duyuruList}" rows="8" paginator="true"
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					rowsPerPageTemplate="5,10,15">
+					
+
+
+						<f:facet name="header"> İlanlar
+				
+
+						</f:facet>
+						<p:column headerText="Lütfen epostanızı girin: ">
+							<p:graphicImage library="images" name="abc.jpg" />
+
+						</p:column>
+
+					<p:column filterBy="#{item.email}">
+						<h:outputText value="#{item.id}" />
+					</p:column>
+
+					<p:column headerText="İlanın verildiği şehir">
+						<h:outputText value="#{item.sehir}" />
+					</p:column>
+
+					<p:column headerText="Şirketin adı">
+						<h:outputLabel value="#{item.sirket}" />
+					</p:column>
+					
+					<p:column headerText="Duyuru Tarihi">
+						<h:outputLabel value="******" />
+					</p:column>
+					
+					<p:column headerText="Deneyim Bilgisi">
+						<h:outputLabel value="******" />
+					</p:column>
+					
+					 
+
+					<p:column headerText="İşlemler">
+						<h:commandButton value="Sil"
+								update=":frmDuyuru:tblDuyuru, :frmDuyuru:message"
+							actionListener="#{duyuruBean.sil(item.id)}" icon="ui-icon-trash"></h:commandButton>
+
+
+						<h:commandButton value="Güncelle"
+							update=":frmDuyuru:dlgDuyuru, :frmDuyuru:message"
+							actionListener="#{duyuruBean.duzenle(item.id)}"
+							oncomplete="PF('dlgDuyuru').show();" icon="ui-icon-pencil"></h:commandButton>
+					</p:column>
+				</p:dataTable>
+
+
+				<p:dialog id="dlgDuyuru" widgetVar="dlgDuyuru" closable="true"
+					modal="true">
+					<p:panelGrid columns="2">
+						<p:outputLabel value="İlan sirket"></p:outputLabel>
+						<p:inputText value="#{duyuruBean.duyuru.sirket}"></p:inputText>
+
+						<p:outputLabel value="Şifre :"></p:outputLabel>
+						<p:password value="#{duyuruBean.duyuru.pozisyon}"></p:password>
+
+
+
+						<f:facet name="footer">
+							<p:commandButton value="Kaydet" process="@form"
+								action="#{duyuruBean.kaydet}"
+								update="frmDuyuru:tblDuyuru,:frmDuyuru:message"
+								oncomplete="PF('dlgDuyuru').hide();"></p:commandButton>
+						</f:facet>
+					</p:panelGrid>
+				</p:dialog>
+
+			</h:form>
+
+
+
+		</div>
+
+	</div>
+
+
+
+
+</div>
+
+
+
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$().UItoTop({
+				easingType : 'easeOutQuart'
+			});
+
+		});
+	</script>
+	<a href="#" id="toTop"><span id="toTopHover"> </span></a>
+</h:body>
+
+
+</html>
+

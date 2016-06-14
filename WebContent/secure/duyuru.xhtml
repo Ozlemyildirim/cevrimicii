@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -55,12 +54,13 @@
 			<div class="headertop_desc">
 				<div class="account_desc">
 					<ul>
-						<li><a href="#">Profil Görüntüle</a></li>
-						<li><a href="#">Profil Güncelle</a></li>
-						<li><a href="#">Şirket Profili Güncelle</a></li>
-						<li><a href="#">İlan Güncelle</a></li>
 
-						<li><a href="#">Çıkış Yap</a></li>
+						<li><a href="profilupdate.xhtml">Profil Güncelle</a></li>
+						<li><a href="sirketupdate.xhtml">Şirket Profili Güncelle</a></li>
+						<li><a href="ilanupdate.xhtml">İlan Sil</a></li>
+						<li><a href="#">Hesabımı sil</a></li>
+
+						<li><a href="login.xhtml">Çıkış Yap</a></li>
 					</ul>
 				</div>
 				<div class="clear"></div>
@@ -70,10 +70,10 @@
 					<a href="index.html"><img src="images/logo.png" alt="" /></a>
 				</div>
 				<div class="cart">
-					<p>Yaptığınız başvurular:</p>
+					<p>YaptÄ±ÄŸÄ±nÄ±z baÅŸvurular:</p>
 					<div id="dd" class="wrapper-dropdown-2">
 						<ul class="dropdown">
-							<li>Hiç başvurunuz yok !</li>
+							<li>HiÃ§ baÅŸvurunuz yok !</li>
 						</ul>
 					</div>
 				</div>
@@ -85,23 +85,18 @@
 					DropDown.prototype = {
 						initEvents : function() {
 							var obj = this;
-
 							obj.dd.on('click', function(event) {
 								$(this).toggleClass('active');
 								event.stopPropagation();
 							});
 						}
 					}
-
 					$(function() {
-
 						var dd = new DropDown($('#dd'));
-
 						$(document).click(function() {
 							// all dropdowns
 							$('.wrapper-dropdown-2').removeClass('active');
 						});
-
 					});
 				</script>
 				<div class="clear"></div>
@@ -113,8 +108,8 @@
 					<ul>
 						<li class="active"><a href="template.xhtml">Anasayfa</a></li>
 						<li><a href="about.html">Hakkında</a></li>
-						<li><a href="profil.xhtml">Üye profili oluştur</a></li>
-						<li><a href="sirket.xhtml">Şirket profili oluştur</a></li>
+						<li><a href="profil.xhtml">Üye Profili Oluştur</a></li>
+						<li><a href="sirket.xhtml">Şirket Profili Oluştur</a></li>
 						<li><a href="iletisim.xhtml">İletişim</a></li>
 						<div class="clear"></div>
 					</ul>
@@ -133,16 +128,13 @@
 					<div class="categories">
 						<ul>
 							<h3>Profili tamamla</h3>
-							<li><a href="profil.xhtml">Kişisel Bilgiler</a></li>
-							<li><a href="deneyim.xhtml">Deneyim</a></li>
-							<li><a href="egitim.xhtml">Eğitim</a></li>
-							<li><a href="tercihler.xhtml">Tercihler</a></li>
-							<li><a href="referans.xhtml">Referanslar</a></li>
+							<li><a href="sirket.xhtml">Şirket Bilgileri</a></li>
+							<li><a href="duyuru.xhtml">İlan Oluştur</a></li>
+
 
 						</ul>
 					</div>
 				</div>
-
 
 
 				<h:outputStylesheet name="css/form.css"></h:outputStylesheet>
@@ -151,46 +143,77 @@
 					<div class="main">
 						<div class="content">
 							<div class="form-style-3">
-								<h:form id="frmProfil">
+								<h:form id="frmDuyuru">
 									<p:panelGrid columns="2">
-										<f:facet name="header">KİŞİSEL BİLGİLER</f:facet>
-										<h:outputText value="Adı :" />
-										<h:inputText id="adi" value="#{profilBean.profil.adi}"></h:inputText>
 
-										<h:outputText value="Soyadı :" />
-										<p:inputText id="soyadi" value="#{profilBean.profil.soyadi}"></p:inputText>
+										<f:facet name="header">İlan Ver</f:facet>
+										<h:outputText value="Şehir :" />
+										<h:selectOneMenu id="sehir" value="#{duyuruBean.duyuru.sehir}"
+											style="width:250px">
+											<f:selectItem itemLabel="Seçiniz" itemValue="" />
+											<f:selectItem itemLabel="Ankara" itemValue="Ankara" />
+											<f:selectItem itemLabel="İstanbul" itemValue="İstanbul" />
+											<f:selectItem itemLabel="İzmir" itemValue="İzmir" />
+										</h:selectOneMenu>
 
-                                       <h:outputText value="Adres :" />
-										<p:inputText id="Adres" value="#{profilBean.profil.adres}"></p:inputText>
-
-										
-                                 
-                                 <h:outputText value="Cinsiyet :" />
-										<p:inputText id="Cinsiyet" value="#{profilBean.profil.cinsiyet}"></p:inputText>
-
-                                   <h:outputText value="Doğum Tarihi :" />
-										<p:inputText id="Tarihi" value="#{profilBean.profil.dtarihi}"></p:inputText>
-
-										<h:outputText value="E-mail: " />
-										<p:inputText value="#{profilBean.profil.eposta}" id="eposta"
-											required="true" label="Email" />
-											
-										<h:outputText value="Telefon " />
-										<p:inputText id="tel" value="#{profilBean.profil.telefon}"
-							mask="(999) 999-9999" required="true" style="width: 200px;" />
-										
-
-										<h:outputText value="Medeni Hal :" />
-										<p:inputText id="Medeni" value="#{profilBean.profil.medenihal}"></p:inputText>
-
-										
-										
+										<h:outputText value="E-mail :" />
+										<p:inputText id="email" value="#{duyuruBean.duyuru.email}"></p:inputText>
 
 
-										<h:commandButton value="Kaydet" update="frmProfil" 
-											action="#{profilBean.olustur}"></h:commandButton>
-										<h:commandButton value="İptal" update="frmProfil" 
-											action="profil.xhtml"></h:commandButton>
+										<h:outputText value="Pozisyon :" />
+										<p:inputText id="pozisyon"
+											value="#{duyuruBean.duyuru.pozisyon}"></p:inputText>
+
+										<p:outputLabel for="sektör" value="Sektör :" />
+										<h:selectOneMenu id="sektör"
+											value="#{duyuruBean.duyuru.sektor}" style="width:250px">
+											<f:selectItem itemLabel="Seçiniz" itemValue="" />
+											<f:selectItem itemLabel="Bilişim" itemValue="Bilişim" />
+											<f:selectItem itemLabel="Sağlık" itemValue="Sağlık" />
+											<f:selectItem itemLabel="Yazılım" itemValue="Yazılım" />
+											<f:selectItem itemLabel="İnşaat" itemValue="İnşaat" />
+											<f:selectItem itemLabel="Satış-Pazarlama"
+												itemValue="Satış-Pazarlama" />
+											<f:selectItem itemLabel="Mühendislik" itemValue="Mühendislik" />
+											<f:selectItem itemLabel="Genel yönetim"
+												itemValue="Genel yönetim" />
+											<f:selectItem itemLabel="Grafik Tasarım"
+												itemValue="Grafik Tasarım" />
+											<f:selectItem itemLabel="Diğer" itemValue="Diğer" />
+										</h:selectOneMenu>
+
+									 
+
+										<p:outputLabel for="egitim" value="Eğitim :" />
+										<h:selectOneMenu id="egitim"
+											value="#{duyuruBean.duyuru.egitim}">
+											<f:selectItem itemLabel="Seçiniz" itemValue="" />
+											<f:selectItem itemLabel="İlköğretim" itemValue="İlköğretim" />
+											<f:selectItem itemLabel="Ortaokul" itemValue="Ortaokul" />
+											<f:selectItem itemLabel="Lise" itemValue="Lise" />
+											<f:selectItem itemLabel="Lisans" itemValue="Lisans" />
+											<f:selectItem itemLabel="Yüksek Lisans"
+												itemValue="Yüksek Lisans" />
+											<f:selectItem itemLabel="Doktora" itemValue="Doktora" />
+										</h:selectOneMenu>
+
+										<h:outputText value="Deneyim :" />
+										<p:inputText id="deneyim" value="#{duyuruBean.duyuru.deneyim}"></p:inputText>
+
+										<p:outputLabel for="askerlik" value="Askerlik :" />
+										<h:selectOneMenu id="askerlik"
+											value="#{duyuruBean.duyuru.askerlik}">
+											<f:selectItem itemLabel="Seçiniz" itemValue="" />
+											<f:selectItem itemLabel="Yaptı" itemValue="Yaptı" />
+											<f:selectItem itemLabel="Yapmadı" itemValue="Yapmadı" />
+
+										</h:selectOneMenu>
+
+
+										<p:commandButton value="Kaydet" update="frmDuyuru" ajax="true"
+											action="#{duyuruBean.kaydet}"></p:commandButton>
+										<p:commandButton value="İptal" update="frmDuyuru" ajax="true"
+											action="duyuru.xhtml"></p:commandButton>
 									</p:panelGrid>
 								</h:form>
 							</div>
@@ -206,13 +229,11 @@
 
 
 
-
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$().UItoTop({
 				easingType : 'easeOutQuart'
 			});
-
 		});
 	</script>
 	<a href="#" id="toTop"><span id="toTopHover"> </span></a>
@@ -220,4 +241,3 @@
 
 
 </html>
-

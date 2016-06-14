@@ -56,9 +56,10 @@
 					<ul>
 
 
-						<li><a href="#">Profil Güncelle</a></li>
-						<li><a href="#">Şirket Profili Güncelle</a></li>
-						<li><a href="#">İlan Güncelle</a></li>
+					
+						<li><a href="profilupdate.xhtml">Profil Güncelle</a></li>
+						<li><a href="sirketupdate.xhtml">Şirket Profili Güncelle</a></li>
+						<li><a href="ilanupdate.xhtml">İlan Sil</a></li>
 						<li><a href="#">Hesabımı sil</a></li>
 
 						<li><a href="login.xhtml">Çıkış Yap</a></li>
@@ -144,64 +145,53 @@
 		<div class="header_bottom">
 			<div class="main">
 				<h:form id="frmUpdate">
-					<p:growl id="message" autoUpdate="true" showDetail="true"
-						life="5000" showSummary="true"></p:growl>
 
-					<h:panelGrid id="tblUpdate" var="item"
-						value="#{homeBBean.arizaList}">
+					<p:dataTable var="item" value="#{profilBean.profilList}"
+						layout="grid" widgetVar="ListTable" rows="12" paginator="true"
+						id="tblUpdate" filteredValue="#{profilBean.filteredList}"
+						paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+						rowsPerPageTemplate="8,12,16">
 
+						<f:facet name="header"> Profilinizi güncelleyin..
+				
 
-						<f:facet name="header"> Profilimi Görüntüle	</f:facet>
+						</f:facet>
+						<p:column headerText="Lütfen epostanızı girin: ">
+							<p:graphicImage library="images" name="abc.jpg" />
 
-						<h:outputLabel value="Adı :" />
-						<h:outputText value="#{profilBean.profil.adi}"/>
+						</p:column>
 
-						<h:outputLabel value="Soyadı :" />
-						<h:outputText id="soyadi" value="#{profilBean.profil.soyadi}"></h:outputText>
+						<p:column filterBy="#{item.eposta}">
+							<h:outputText value="#{item.id}" />
+						</p:column>
 
-						<h:outputLabel value="Adres :" />
-						<h:outputText id="Adres" value="#{profilBean.profil.adres}"></h:outputText>
+						<p:column>
+							<h:outputText id="adi" value="#{item.adi}" />
+						</p:column>
 
+						<p:column>
+							<h:outputText id="soyadi" value="********" />
+						</p:column>
 
-
-						<h:outputLabel value="Cinsiyet :" />
-						<h:outputText id="Cinsiyet" value="#{profilBean.profil.cinsiyet}"></h:outputText>
-
-						<h:outputLabel value="Doğum Tarihi :" />
-						<h:outputText id="Tarihi" value="#{profilBean.profil.dtarihi}"></h:outputText>
-
-						<h:outputLabel value="E-mail: " />
-						<h:outputText value="#{profilBean.profil.eposta}" id="eposta"
-							required="true" label="Email" />
-
-						<h:outputLabel value="Telefon " />
-						<h:outputText id="tel" value="#{profilBean.profil.telefon}"
-							mask="(999) 999-9999" required="true" style="width: 200px;" />
-
-
-						<h:outputLabel value="Medeni Hal :" />
-						<h:outputText id="Medeni" value="#{profilBean.profil.medenihal}"></h:outputText>
-
-
-
-
-
-						<p:column headerText="Güncelle">
-							<p:commandButton value="Güncelle"
-								actionListener="#{profilBean.duzenle(item.id)}"
-								icon="ui-icon-pencil" update=":frmUpdate:dlgUpdate"
-								oncomplete="PF('dlgUpdate').show();"></p:commandButton>
+						<p:column>
+							<h:outputText id="adres" value="********" />
 						</p:column>
 
 
+						<p:column>
+							<h:commandButton value="View" icon="ui-icon-extlink"
+							actionListener="#{profilBean.duzenle(item.id)}"
+								update=":frmUpdate:dlgUpdate"  
+								oncomplete="PF('dlgUpdate').show();" />
+						</p:column>
 
 
+					</p:dataTable>
 
-					</h:panelGrid>
 
 					<p:dialog id="dlgUpdate" widgetVar="dlgUpdate" closable="true"
-						header="Kayıt güncelle" modal="true">
-						<p:panelGrid columns="2">
+						header="Kayıt güncelle">
+						<p:panelGrid>
 
 							<h:outputLabel value="Adı :" />
 							<h:inputText id="adi" value="#{profilBean.profil.adi}"></h:inputText>
@@ -237,8 +227,7 @@
 
 							<f:facet name="footer">
 								<p:commandButton value="Kaydet" process="@form"
-									action="#{profilBean.olustur}"
-									update="frmUpdate:tblUpdate"
+									action="#{profilBean.olustur}" update="frmUpdate:tblUpdate"
 									oncomplete="PF('dlgUpdate').hide();"></p:commandButton>
 							</f:facet>
 						</p:panelGrid>

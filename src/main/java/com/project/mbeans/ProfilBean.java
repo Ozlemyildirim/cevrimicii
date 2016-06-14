@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -28,6 +29,7 @@ public class ProfilBean implements Serializable {
 
 	private Profil profil;
 	List<Profil> ProfilList;
+	List<Profil> filteredList;
 
 	@PostConstruct
 	public void init() {
@@ -44,6 +46,8 @@ public class ProfilBean implements Serializable {
 		}
 
 		ProfilList = ProfilService.getAll();
+filteredList = ProfilService.getAll();
+
 
 		profil = new Profil();
 	}
@@ -80,4 +84,14 @@ public class ProfilBean implements Serializable {
 		return ProfilList;
 	}
 
+	public List<Profil> getFilteredList() {
+		return filteredList;
+	}
+
+	public void setFilteredList(List<Profil> filteredList) {
+		this.filteredList = filteredList;
+	}
+	
+	
+	
 }

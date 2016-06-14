@@ -29,6 +29,7 @@ public class Duyuru extends BaseEntity {
 	private String pozisyon;
 	private Sirket sirket;
 	private String sektor;
+	private String email;
 	private Date duyurutarihi;
 	private String egitim;
 	private String deneyim;
@@ -54,6 +55,19 @@ public class Duyuru extends BaseEntity {
 	public void setSehir(String sehir) {
 		this.sehir = sehir;
 	}
+	
+	
+	@Column(name = "EMAIL")
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	
+	
 
 	@Column(name = "POZISYON")
 	public String getPozisyon() {
